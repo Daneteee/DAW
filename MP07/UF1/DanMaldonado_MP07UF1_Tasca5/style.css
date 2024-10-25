@@ -1,0 +1,37 @@
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura completa de la finestra */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Color de fons */
+        }
+
+        .botones {
+            display: flex;
+            flex-direction: column; /* Els botons en una columna */
+            gap: 10px; /* Espai entre botons */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Transició suau al canviar de color */
+        }
+
+        button:hover {
+            background-color: #ddd; /* Color al passar el ratolí */
+        }
+
+        .enviar {
+            background-color: #007BFF; /* Color de fons per al botó d'enviar */
+            color: white;
+        }
+
+        .enviar:hover {
+            background-color: #0056b3; /* Color al passar el ratolí sobre el botó d'enviar */
+        }
