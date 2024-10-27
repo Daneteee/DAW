@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS a HTML5</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CSS a HTML5</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">INICI</a></li>
+            <li><a href="html.html">HTML</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="cssinhtml5.html">CSS en HTML5</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <section class="intro">
+            <h2>CSS</h2>
+            <p>En aquest lloc web explicarem l'ús de CSS en HTML5.</p>
+        </section>
+
+        <article>
+            <br><br>Fulls d'Estil a Cascada (de l'anglès C ascading S tyle S heets ) o CSS és el llenguatge d' estils utilitzat per descriure la presentació de documents HTML o XML (en-US)(incloent diversos llenguatges basats en XML com SVG , MathML o XHTML ). CSS descriu com ha de ser renderitzat l'element estructurat a la pantalla, en paper, a la parla o en altres mitjans.
+
+            <br><br>CSS és un dels llenguatges base de l' Open Web i té una especificació estandarditzada per part del W3C. Anteriorment, el desenvolupament de diverses parts de les especificacions de CSS era realitzat de manera sincrònica, la qual cosa permetia el versionat de les recomanacions. Probablement haureu escoltat sobre CSS1, CSS2.1, CSS3. Tot i això, CSS4 mai s'ha llançat com una versió oficial.
+
+            <br><br>Des de CSS3, l'abast de les especificacions es va incrementar de forma significativa i el progrés dels diferents mòduls de CSS va començar a mostrar diverses diferències, fet que va fer més efectiu desenvolupar i publicar recomanacions separades per mòduls . En comptes de versionar les especificacions de CSS, la W3C actualment realitza una captura de les últimes espcificacions estables de CSS .
+
+        </article>
+
+        <br>
+        
+        <div class="formulari">
+            <h3>Formulari de Feedback</h3>
+            <form>
+                <label for="nombre">Nom:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="html">Experiencia amb HTML:</label>
+                <textarea id="html" name="html" rows="4" required></textarea>
+    
+                <label for="html5">Experiencia amb HTML5:</label>
+                <textarea id="html5" name="html5" rows="4" required></textarea>
+    
+                <label for="css">Experiencia amb CSS:</label>
+                <textarea id="css" name="css" rows="4" required></textarea>
+    
+                <input type="submit" value="Enviar">
+
+                <div id="enquesta-agrada">
+                    <label>T'agrada HTML?</label>
+                    <div class="opciones">
+                        <input class="boleta" type="radio" name="sino1" id="si1"><label for="si1">Si:</label>
+                        <input class="boleta" type="radio" name="sino1" id="no1"><label for="no1">No:</label>
+                    </div>
+                    <br>
+                    <label>T'agrada HTML5?</label>
+                    <div class="opciones">
+                        <input class="boleta" type="radio" name="sino2" id="si2"><label for="si2">Si:</label>
+                        <input class="boleta" type="radio" name="sino2" id="no2"><label for="no2">No:</label>
+                    </div>
+                    <br>
+                    <div>
+                        <label>T'agrada CSS?</label>
+                        <div class="opciones">
+                            <input class="boleta" type="radio" name="sino3" id="si3"><label for="si3">Si:</label>
+                            <input class="boleta" type="radio" name="sino3" id="no3"><label for="no3">No:</label>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </main>
+
+    
+
+    <footer>
+        <p>&copy; 2023 Sitio Web de HTML y HTML5</p>
+    </footer>
+</body>
+</html>

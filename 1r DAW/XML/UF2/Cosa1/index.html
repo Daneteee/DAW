@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blog de Notícies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Danoticies</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Enlaces de navegación -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#noticia1">Noticia 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#noticia2">Noticia 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#noticia3">Noticia 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 id="noticia1" class="mb-4">Blog de Notícies</h1>
+
+        <!-- Notícia 1 -->
+        <div class="card mb-4">
+            <img src="multimedia/ciber.jpeg" class="card-img-top" alt="Imatge de la notícia">
+            <div class="card-body">
+                <h2 class="card-title">Una filtración deja en evidencia la seguridad informática de la Generalitat</h2>
+                <p class="card-text">Un hacker cuelga en internet decenas de documentos atribuidos al Cesicat, ente del Govern responsable de garantizar la protección en la red.</p>
+                <a href="#" class="btn btn-primary">Llegir Més</a>
+            </div>
+        </div>
+
+        <!-- Notícia 2 -->
+        <div class="card mb-4">
+            <img src="multimedia/tapas.jpg" class="card-img-top" alt="Imatge de la notícia">
+            <div class="card-body">
+                <h2 id="noticia2" class="card-title">Sitges se va de tapas</h2>
+                <p class="card-text">La primera edición del concurso Tapa de l'Any es la excusa perfecta para conocer la localidad.</p>
+                <a href="#" class="btn btn-primary">Llegir Més</a>
+            </div>
+        </div>
+
+        <!-- Notícia 3 -->
+        <div class="card mb-4">
+            <img src="multimedia/poli.avif" class="card-img-top" alt="Imatge de la notícia">
+            <div class="card-body">
+                <h2 id="noticia3" class="card-title">Incautan más de 200 kilos de cocaína en el puerto de Barcelona</h2>
+                <p class="card-text">La droga llegó a la capital catalana oculta en un cargamento de algodón procedente de la República Dominicana.</p>
+                <a href="#" class="btn btn-primary">Llegir Més</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white">
+        <p>Direcció: C/ Ubuntu 404</p>
+        <p>Telefon: 323 323 232</p>
+        
+        <form>
+            <label for="nombre">Nom:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <a href="XML/UF2/rss.xml" class="rss-icon"> <img src="multimedia/rss.png" alt="Icono de RSS" width="30"></a>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

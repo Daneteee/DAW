@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sessió 5</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <div id="bloque_menu"></div>
+    <div class="menu">
+        <h1 id="titol">Formulari</h1>
+    </div>
+
+    <div id="bloque_principal">
+        <div id="bloque_form">
+            <form>
+
+                <!-- Nom i cognom -->
+                <label for="nom">Nom:</label><br>
+                <input type="text" id="nom" name="nom"><br>
+                <br>
+                <label for="cognom">Cognoms:</label><br>
+                <input type="text" id="cognom" name="cognom"><br>
+                <br>
+
+                <!-- Email -->
+                <label for="email">Introdueix el teu email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <br>
+
+                <!-- Radius -->
+                <br> Sexe <br>
+                <input type="radio" id="html" name="sexe" value="HTML">
+                <label for="html">Home</label><br>
+                <input type="radio" id="css" name="sexe" value="CSS">
+                <label for="css">Dona</label><br>
+                <br>
+
+                <!-- Edat -->
+                <br>
+                <label for="edat">Quina edat tens?:</label>
+                <input type="number" id="quantity" name="edat" min="1" max="99"><br>
+                <br>
+
+                <!-- Data -->
+                <label for="Data">Data:</label>
+                <input type="date" id="data" name="data">
+                <br>
+
+                <!-- Checkbox -->
+                <br>Quins llenguatges coneixes?<br>
+                <input type="checkbox" id="llenguatges" name="llenguatge1" value="Python">
+                <label for="llenguatge1"> Python</label><br>
+                <input type="checkbox" id="llenguatge2" name="llenguatge2" value="css">
+                <label for="llenguatge2"> CSS</label><br>
+                <input type="checkbox" id="llenguatge3" name="llenguatge3" value="HTML">
+                <label for="llenguatge3"> HTML</label><br>
+                <input type="checkbox" id="llenguatges" name="llenguatge4" value="Java">
+                <label for="llenguatge4"> Java</label><br>
+                <input type="checkbox" id="llenguatges" name="llenguatge5" value="JavaScript">
+                <label for="llenguatge5"> JavaScript</label><br>
+                <br>
+
+                <!-- Color -->
+                <label for="favcolor">Color preferit?:</label>
+                <input type="color" id="favcolor" name="color_preferit">
+                <br>
+
+                <!-- Botons -->
+                <br>
+                <input type="submit" value="Enviar" onclick="alert('Gràcies per la resposta!')"><br>
+                <input type="reset" value="Reiniciar"><br>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

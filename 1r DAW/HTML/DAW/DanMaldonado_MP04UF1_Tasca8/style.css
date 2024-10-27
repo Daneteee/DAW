@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*Backgrounds generals*/
+#receptes {
+    background-image: url('multimedia/recepta1.avif'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+#beneficis {
+    background-image: url('multimedia/beneficis.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+#contacte {
+    background-image: url('multimedia/contacte.jpeg'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+#index {
+    background-image: url('multimedia/fons1.avif'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+/*-----------------------------------------------------*/
+
+/*Bloc on es troba tota la informació de les pagines*/
+#bloc{
+    position: absolute;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    margin-top: 5vh;
+    left: 5%;
+    border-radius: 2%;
+}
+/*-----------------------------------------------------*/
+
+/*El header i la barra de navegació*/
+header{
+    height: 5em;
+    background-color: #00cc99;
+    display: flex;
+    align-items: center;
+}
+
+#principal{
+    margin: 2em;
+    vertical-align: middle;
+}
+
+.pagines{
+    position: relative;
+    list-style: none;
+}
+
+.pagines li{
+    font-size: 20px;
+    display: inline;
+    margin: 1em;
+}
+
+.pagines li a{
+    text-decoration: none;
+}
+/*-----------------------------------------------------*/
+
+h2{
+    margin: 1em;
+}
+
+p{
+    margin: 1em;
+    text-align: justify;
+    font-size: 22px;
+}
+
+footer{
+    position: absolute;
+    top: 85%;
+}
+
+.imatge-index{
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    top: 60%;
+    left: 38%;
+}
+
+ol li{
+    margin: 2em ;
+    max-width: 70%;
+}
+
+.imatge-recepta{
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    top: 30%;
+    left: 73%;  
+}
+
+/*Taula d'ingredients*/
+.ingredients{
+    position: absolute;    
+    top: 64%;
+    left: 78%;
+    width: 27em;
+    height: 18em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ingredient{
+    font-size: 18px;
+}
+
+#titol-ingredients{
+    position: absolute;
+    top: 61%;
+    left: 75%;
+}
+
+/*-----------------------------------------------------*/
+
+/*Pàgina dels beneficis*/
+#general-beneficis{
+    position: absolute;
+    left: 2%;
+}
+
+#llistat-cercles{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    top: -8vh;
+}
+
+/*Creem els cercles*/
+.cercle {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #ffffff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    margin-top: 9vh;
+}
+
+/*Mostrem els beneficis*/
+#llistat-beneficis{
+    position: absolute;
+    top: 5%;
+    left: 5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefici{
+    width: 165vh;
+    left: 8%;
+}
+/*-----------------------------------------------------*/
+
+/*Pagina de contacte*/
+#general-contacte{
+    max-height: 50vh;
+}
+
+#llistat-icones{
+    display: flex;
+    flex-direction: column;
+}
+
+.icona{
+    width: 3%;
+    height: 3%;
+    margin-top: 6em;
+    margin-left: 3em;
+}
+
+#llistat-contacte{
+    position: relative;
+    top: -49vh;
+    left: 6em;
+}
+
+.metode{
+    margin-top: 8em;
+}
+/*-----------------------------------------------------*/

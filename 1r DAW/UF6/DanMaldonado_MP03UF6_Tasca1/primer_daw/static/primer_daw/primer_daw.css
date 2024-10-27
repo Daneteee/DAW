@@ -1,0 +1,62 @@
+* {
+        font-family: Arial, sans-serif;
+
+}
+
+header {
+        background-color: #333;
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 100px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+th {
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    height: 20em;
+    border-collapse: collapse;
+}
+
+.entorns-de-desenvolupament {
+    background-color: rgb(253, 255, 189);
+}
+
+.sistemes-informatics {
+    background-color: #f9c2c2;
+}
+
+.bases-de-dades {
+    background-color: #c2f9c9;
+}
+
+.programacio {
+    background-color: #c2d1f9;
+}
+
+.llenguatge-de-marques {
+    background-color: #f9e0c2;
+}
+
+

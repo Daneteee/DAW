@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="llibreria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="llibre" type="dadesLlibres"
+                minOccurs="2" maxOccurs="5" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="dadesLlibres">
+        <xs:sequence>
+            <xs:group ref="dadesLlibre" />
+            <xs:element name="any" type="xs:date" />
+        </xs:sequence>
+        <xs:attribute name="ID" type="xs:string" use="optional" />
+    </xs:complexType>
+
+    <xs:group name="dadesLlibre">
+        <xs:sequence>
+            <xs:element name="titol" type="xs:string" />
+            <xs:element name="autor" type="xs:string" />
+        </xs:sequence>
+    </xs:group>
+</xs:schema>

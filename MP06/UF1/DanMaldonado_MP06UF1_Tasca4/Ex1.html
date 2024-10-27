@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>JS DOM paragraph style</title>
+    </head> 
+    <body>
+        <p id ='text'>JavaScript Exercises</p> 
+        <div>
+            <!-- Assignem la funció al botó -->
+            <button id="jsstyle" onclick="js_style()">Style</button>
+        </div>
+
+        <script>
+            function js_style() {
+              const button = document.getElementById('jsstyle');
+              // Apliquem els estils
+              button.style.fontSize = '14px';
+              button.style.fontFamily = 'Arial, sans-serif'; 
+              button.style.color = 'green';
+            }
+        </script>
+
+    </body>
+</html>

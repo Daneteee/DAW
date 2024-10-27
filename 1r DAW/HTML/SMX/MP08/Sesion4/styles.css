@@ -1,0 +1,50 @@
+iframe {
+    border: 1px solid #e9ecef;
+}
+
+#barra {
+    background-color: #FF494E;
+    color: #fff;
+    height: auto;
+    margin-bottom: 2rem;
+    padding: 0;
+    max-height: 40px;
+    z-index: 1;
+    min-height: 40px;
+}
+
+#topbar {
+    padding: 1rem;
+    border-bottom: 2px solid #FF494E;
+}
+
+body {
+    background-color: #fff;
+}
+
+#button {
+    width: 25px;
+    height: 30px;
+}
+
+#logo {
+    position: absolute;
+    opacity: 20%;
+    top: 75px;
+    right: 50px;
+    width: 10%;
+    height: 7%;
+}
+
+#mapa {
+    position: absolute;
+}
+
+table {
+    border: #b2b2b2 1px solid;
+}
+
+td,
+th {
+    border: black 1px solid;
+}

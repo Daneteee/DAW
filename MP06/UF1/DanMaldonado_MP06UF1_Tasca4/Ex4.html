@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Change the content of a cell</title>
+    <script>
+      function updateCell() {
+        let row = parseInt(document.getElementById("row").value);
+        let col = parseInt(document.getElementById("col").value);
+        let text = document.getElementById("text").value;
+
+        let table = document.getElementById("myTable");
+
+        // Comprovem que els valors siguin correctes i actualitzem
+        if (row > 0 && row <= table.rows.length && col > 0 && col <= table.rows[row-1].cells.length) {
+            table.rows[row-1].cells[col-1].innerHTML = text;
+        } else {
+            alert("Fila o columna no vàlides.");
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <table id="myTable" border="1">
+      <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+      </tr>
+      <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+      </tr>
+      <tr>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+      </tr>
+    </table>
+    <form>
+      <br><br>
+      <!-- Amb el type number assegurem que només s'introdueixen nombres -->
+      Fila: <input type="number" id="row" name="row" min="1" required><br>
+      Columna: <input type="number" id="col" name="col" min="1" required><br>
+      Nou text: <input type="text" id="text" name="text" required><br>
+      <input type="button" value="Actualitzar cel·la" onclick="updateCell()">
+    </form>  
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Blog de Python
+{% endblock %}
+
+{% block content %}
+    <div class="header-image mt-3">
+        <img src="{% static 'blog/images/header.jpg' %}" class="img-fluid rounded" alt="Imagen Descriptiva">
+    </div>
+
+    <div class="container mt-4">
+        <div class="text-center">
+            <h1>Benvingut al Blog M3 - UF6</h1>
+            <p>Aquest és el projecte d'aprenentatge M3-UF6 basat en Django</p>
+        </div>
+
+        <div class="row">
+            {% for post in posts|slice:":3" %}
+                {% include 'my_site/includes/post.html' with post=post %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Change the content of a cell</title>
+  </head>
+  <body>
+    <p>
+      Lorem Ipsum és un text de farciment usat per la indústria de la tipografia i la impremta. Lorem Ipsum ha estat el text estàndard 
+      de la indústria des de l'any 1500, quan un impressor desconegut va fer servir una galerada de text i la va mesclar per crear un 
+      llibre de mostres tipogràfiques. No només ha sobreviscut cinc segles, sinó que ha fet el salt cap a la creació de tipus de lletra 
+      electrònics, romanent essencialment sense canvis. Es va popularitzar l'any 1960 amb el llançament de fulls Letraset que contenien 
+      passatges de Lorem Ipsum, i més recentment amb programari d'autoedició com Aldus Pagemaker que inclou versions de Lorem Ipsum.
+
+    </p>
+    <form>
+    <input type="button" value="Marca paraules de 8 lletres o més" onclick=highlightWords()>
+    </form>
+
+    <script>
+
+      function highlightWords() {
+
+        // Agafem l'element amb el tag de paràgraf
+        const parElement = document.querySelector("p");
+
+        // Agafem el text de l'element
+        let text = parElement.textContent;
+
+        // Dividim per paraules
+        let words = text.split(" ");
+
+        // Text modificat buit
+        let modifiedText = "";
+
+        for (let i = 0; i < words.length; i++) {
+          if (words[i].length >= 8) {
+            // En cas que la mida sigui més gran que 8 afegim ressaltem la paraula
+            modifiedText += `<span style="background-color: yellow;">${words[i]}</span> `;
+          } else {
+
+            // En cas que no, només l'afegim
+            modifiedText += words[i] + " "
+          }
+        }
+
+        // Mostrem el text modificat
+        parElement.innerHTML = modifiedText;
+        
+      }
+
+    </script>
+
+  </body>
+</html>

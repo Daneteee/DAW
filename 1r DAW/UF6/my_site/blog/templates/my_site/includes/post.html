@@ -1,0 +1,12 @@
+{% load static %}
+<div class="col-md-4">
+    <div class="card mb-4">
+        <img src="{% static 'blog/images/' %}{{ post.image_name }}" class="card-img-top" alt="Post Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.excerpt }}</p>
+            <p class="card-text"><small class="text-muted">Publicado por <a href="{% url 'author_detail' author.id %}">{{ post.author }}</a> el {{ post.date }}</small></p>
+            <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Leer más</a>
+        </div>
+    </div>
+</div>

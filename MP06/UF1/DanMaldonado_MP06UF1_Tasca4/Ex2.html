@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>JS DOM paragraph style</title>
+    </head> 
+    <body>
+
+        <p id ='text'>JavaScript Exercises</p> 
+        <p>paràgraf 1</p> 
+        <p>paràgraf 2</p> 
+        <p>paràgraf 3</p> 
+        <p>paràgraf 4</p> 
+
+        <button onclick="canviarColors()">Canviar Colors</button>
+        <script>
+            function canviarColors() {
+              const paragrafElements = document.getElementsByTagName('p');
+          
+              const colors = ['magenta', 'green', 'blue', 'orange', 'purple'];
+          
+              // Fem un bucle on per cada element assignem un color de l'array colors
+              for (let i = 0; i < paragrafElements.length; i++) {
+                paragrafElements[i].style.color = colors[i % colors.length]; 
+              }
+            }
+        </script>
+
+    </body>
+</html>
+

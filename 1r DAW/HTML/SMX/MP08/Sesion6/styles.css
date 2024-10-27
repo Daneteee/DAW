@@ -1,0 +1,63 @@
+#bloque_menu {
+    background-color: rgb(186, 167, 255);
+    border: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+    top: -75px;
+    color: rgb(99, 0, 102);
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+#titols {
+    color: aliceblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+p {
+    color: aliceblue;
+    font-family: Arial
+}
+
+body {
+    background-color: rebeccapurple;
+    color: aliceblue;
+    justify-content: center;
+    margin: 25px;
+    font-family: Arial;
+}
+
+#bloque_mapa {
+    margin-top: -55px;
+}
+
+#iframe {
+    position: absolute;
+    border: 5px solid;
+    border-color: blueviolet;
+    border-radius: 2px;
+    left: 65%;
+    top: 14%;
+    width: 25%;
+    height: 27%;
+}
+
+#video {
+    position: absolute;
+    left: 63%;
+    top: 55%;
+    width: 30%;
+    height: 40%;
+}
+
+#audio {
+    position: absolute;
+    left: 69%;
+    top: 45%;
+}

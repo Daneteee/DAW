@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakemory!</title>
+    <link rel="stylesheet" href="title.css">
+    <script src="game.js"></script>
+</head>
+<body>
+    
+    <!-- Pàgina principal -->
+    <div class="main-title">
+        <img src="static/bakemory.png" alt="Bakemory Logo" class="logo">
+        <img src="static/floor.png" alt="Floor" class="floor">
+        <table class="button-table">
+            <tr>
+                <td colspan="2"><button class="button play-button">¡Jugar!</button></td>
+            </tr>
+            <tr>
+                <td><a href="https://ca.wikipedia.org/wiki/Memorama"><button class="button secondary-button">Com jugar</button></a></td>
+                <td><button class="button secondary-button" id="mode-button">Temps: 30seg</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Joc -->
+    <div class="game">
+        <div class="timer">
+            <div class="timer-content">
+                <div class="minutes">00</div>
+                <span>:</span>
+                <div class="seconds">00</div>
+            </div>
+        </div>
+          
+        <a style="color: inherit; text-decoration: none;"><button class="exit-button" >Sortir</button></a>
+        <img src="static/bakemory.png" alt="Bakemory Logo" class="logo">
+
+        <div class="game-container">
+            <div></div>
+            <img src="static/board.png" class="board"">
+            <div id="gameGrid"></div>
+        </div>
+
+        <!-- Pop up de sortir -->
+        <div class="exit">
+            <p style="margin-bottom: 20px">Segur que vols sortir?</p>
+            <div class="buttons">
+                <a href="#" style="color: inherit; text-decoration: none;">
+                    <button class="exit-button exit-no">No</button>
+                </a>
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <button class="exit-button exit-yes">Sí</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/css" href="rss.css"?>
+
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Blog de Notícies</title>
+        <link>http://www.danoticies.com</link>
+        <description>Últimas notícies del blog.</description>
+        <language>ca</language>
+
+        <item>
+            <title>Una filtración deja en evidencia la seguridad informática de la Generalitat</title>
+            <description>Un hacker cuelga en internet decenas de documentos atribuidos al Cesicat, ente del Govern responsable de garantizar la protección en la red.</description>
+            <link>http://www.danoticies.com/noticia1</link>
+            <guid>http://www.danoticies.com/noticia1</guid>
+            <pubDate>Tue, 09 Jan 2024 12:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>Sitges se va de tapas</title>
+            <description>La primera edición del concurso Tapa de l'Any es la excusa perfecta para conocer la localidad.</description>
+            <link>http://www.danoticies.com/noticia2</link>
+            <guid>http://www.danoticies.com/noticia2</guid>
+            <pubDate>Tue, 09 Jan 2024 13:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>Incautan más de 200 kilos de cocaína en el puerto de Barcelona</title>
+            <description>La droga llegó a la capital catalana oculta en un cargamento de algodón procedente de la República Dominicana.</description>
+            <link>http://www.danoticies.com/noticia3</link>
+            <guid>http://www.danoticies.com/noticia3</guid>
+            <pubDate>Tue, 09 Jan 2024 14:00:00 GMT</pubDate>
+        </item>
+
+        <atom:link href="/home/dan/Documents/VSCode/XML/UF2/rss.xml" rel="self" type="application/rss+xml" />
+
+    </channel>
+</rss>

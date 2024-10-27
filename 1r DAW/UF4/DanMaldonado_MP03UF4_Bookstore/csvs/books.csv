@@ -1,0 +1,92 @@
+title,author,price,ISBN,category
+"The Great Gatsby",F. Scott Fitzgerald,15.99,9780743273565,Fiction
+"To Kill a Mockingbird",Harper Lee,10.99,9780061120084,Fiction
+"1984",George Orwell,12.50,9780451524935,Fiction
+"The Catcher in the Rye",J.D. Salinger,11.25,9780316769488,Fiction
+"Python Crash Course",Eric Matthes,25.00,9781593279288,Programming
+"Learning Python",Mark Lutz,30.00,9781449355739,Programming
+"Deep Learning",Ian Goodfellow,45.99,9780262035613,Science
+"Introduction to Algorithms",Thomas H. Cormen,55.00,9780262033848,Science
+"Crime and Punishment",Fyodor Dostoevsky,9.75,9780679734505,Literature
+"The Odyssey",Homer,8.50,9780140268867,Literature
+"War and Peace",Leo Tolstoy,11.99,9781427030200,Literature
+"The Lord of the Rings",J.R.R. Tolkien,20.25,9780618640157,Fiction
+"Harry Potter and the Sorcerer's Stone",J.K. Rowling,14.95,9780590353403,Fiction
+"The Hobbit",J.R.R. Tolkien,12.99,9780547928227,Fiction
+"Clean Code",Robert C. Martin,38.50,9780132350884,Programming
+"Refactoring",Martin Fowler,31.00,9780201485677,Programming
+"Design Patterns",Erich Gamma,45.25,9780201633610,Programming
+"Data Science from Scratch",Joel Grus,27.99,9781492041139,Science
+"Python for Data Analysis",Wes McKinney,29.75,9781491957660,Science
+"The Road",Cormac McCarthy,14.50,9780307387899,Fiction
+"The Hunger Games",Suzanne Collins,9.99,9780439023481,Fiction
+"The Girl with the Dragon Tattoo",Stieg Larsson,10.25,9780307454546,Fiction
+"The Da Vinci Code",Dan Brown,8.75,9780307474278,Fiction
+"Twilight",Stephenie Meyer,7.50,9780316015844,Fiction
+"Pride and Prejudice",Jane Austen,6.99,9780141439518,Literature
+"Jane Eyre",Charlotte Bronte,7.25,9780141441146,Literature
+"Emma",Jane Austen,6.50,9780141439587,Literature
+"Moby-Dick",Herman Melville,10.99,9780142437247,Literature
+"The Adventures of Huckleberry Finn",Mark Twain,8.99,9780486280615,Literature
+"Anna Karenina",Leo Tolstoy,11.75,9780143035008,Literature
+"Crime and Punishment",Fyodor Dostoevsky,9.75,9780679734505,Literature
+"The Picture of Dorian Gray",Oscar Wilde,7.99,9780141439570,Literature
+"Frankenstein",Mary Shelley,6.50,9780141439471,Literature
+"The Complete Stories and Poems",Edgar Allan Poe,12.99,9780307264880,Literature
+"The Brothers Karamazov",Fyodor Dostoevsky,14.25,9780374528379,Literature
+"The Sound and the Fury",William Faulkner,9.25,9780679732242,Literature
+"The Bell Jar",Sylvia Plath,7.99,9780061148514,Literature
+"Wuthering Heights",Emily Bronte,8.50,9780141439556,Literature
+"To the Lighthouse",Virginia Woolf,8.75,9780156907392,Literature
+"The Stand",Stephen King,12.99,9780307743688,Fiction
+"The Shining",Stephen King,10.50,9780307743657,Fiction
+"The Great Hunt",Robert Jordan,11.75,9780812517729,Fiction
+"The Wheel of Time",Robert Jordan,12.25,9780812517728,Fiction
+"The Eye of the World",Robert Jordan,13.50,9780812511819,Fiction
+"The Name of the Wind",Patrick Rothfuss,9.99,9780756404741,Fiction
+"The Wise Man's Fear",Patrick Rothfuss,11.50,9780756407919,Fiction
+"The Martian",Andy Weir,14.75,9780553418026,Fiction
+"Jurassic Park",Michael Crichton,8.25,9780345538987,Fiction
+"Foundation",Isaac Asimov,9.99,9780553293357,Fiction
+"Dune",Frank Herbert,10.99,9780441172719,Fiction
+"Neuromancer",William Gibson,8.75,9780441569595,Fiction
+"Snow Crash",Neal Stephenson,9.25,9780553380958,Fiction
+"Stranger in a Strange Land",Robert A. Heinlein,7.99,9780441790340,Fiction
+"Brave New World",Aldous Huxley,7.50,9780060850524,Fiction
+"Fahrenheit 451",Ray Bradbury,6.99,9780345342966,Fiction
+"Enders Game",Orson Scott Card,8.99,9780812550702,Fiction
+"The Hitchhiker's Guide to the Galaxy",Douglas Adams,7.25,9780345391803,Fiction
+"The Left Hand of Darkness",Ursula K. Le Guin,9.50,9780441478125,Fiction
+"The Dispossessed",Ursula K. Le Guin,10.75,9780061054884,Fiction
+"The Man in the High Castle",Philip K. Dick,11.25,9780679739395,Fiction
+"The Three-Body Problem",Liu Cixin,12.99,9780765377067,Fiction
+"Ready Player One",Ernest Cline,10.99,9780307887443,Fiction
+"The Maze Runner",James Dashner,9.75,9780385737951,Fiction
+"Outlander",Diana Gabaldon,13.99,9780440212560,Fiction
+"The Help",Kathryn Stockett,11.25,9780425232200,Fiction
+"The Goldfinch",Donna Tartt,12.50,9780316055437,Fiction
+"The Night Circus",Erin Morgenstern,10.75,9780307744432,Fiction
+"The Alchemist",Paulo Coelho,8.99,9780062315007,Fiction
+"Life of Pi",Yann Martel,9.25,9780156027328,Fiction
+"The Kite Runner",Khaled Hosseini,7.99,9781594631931,Fiction
+"The Girl on the Train",Paula Hawkins,9.75,9780735212152,Fiction
+"The Secret Life of Bees",Sue Monk Kidd,8.50,9780142001745,Fiction
+"Water for Elephants",Sara Gruen,8.25,9781565125605,Fiction
+"Room",Emma Donoghue,7.75,9780316098335,Fiction
+"Little Women",Louisa May Alcott,6.99,9780451529305,Fiction
+"Percy Jackson and the Lightning Thief",Rick Riordan,6.50,9780786838653,Fiction
+"Twilight",Stephenie Meyer,7.50,9780316015844,Fiction
+"The Book Thief",Markus Zusak,8.25,9780375842207,Fiction
+"The Help",Kathryn Stockett,11.25,9780425232200,Fiction
+"The Goldfinch",Donna Tartt,12.50,9780316055437,Fiction
+"The Night Circus",Erin Morgenstern,10.75,9780307744432,Fiction
+"The Alchemist",Paulo Coelho,8.99,9780062315007,Fiction
+"Life of Pi",Yann Martel,9.25,9780156027328,Fiction
+"The Kite Runner",Khaled Hosseini,7.99,9781594631931,Fiction
+"The Girl on the Train",Paula Hawkins,9.75,9780735212152,Fiction
+"The Secret Life of Bees",Sue Monk Kidd,8.50,9780142001745,Fiction
+"Water for Elephants",Sara Gruen,8.25,9781565125605,Fiction
+"Room",Emma Donoghue,7.75,9780316098335,Fiction
+"Little Women",Louisa May Alcott,6.99,9780451529305,Fiction
+"Percy Jackson and the Lightning Thief",Rick Riordan,6.50,9780786838653,Fiction
+"The Book Thief",Markus Zusak,8.25,9780375842207,Fiction

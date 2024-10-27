@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #9200b6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    border-radius: 5em;
+    width: 98%;
+    margin-left: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilos para el contenido */
+.content {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el footer */
+footer {
+    position: fixed;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+}
+
+article{
+    text-align: justify;
+}
+
+.imatge{
+    text-align: center;
+}
+
+#explicacio-html5{
+    width: 50%;
+}
+
+aside{
+    margin-left: 2em;
+}
+
+#html5-content{
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.formulari{
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 5em;
+}
+
+form {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+textarea{
+    resize: none;
+}
+
+#enquesta-agrada{
+    position: absolute;
+    top: 76%;
+    left: 52%;
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+}
+
+.boleta{
+    position: absolute;
+    margin-left: 5em;
+}

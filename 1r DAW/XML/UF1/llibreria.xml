@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<llibreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="llibreria.xsd">
+    <llibre ID="4243">
+        <titol>La ultima noche de Rose Daly</titol>
+        <autor>Tana French</autor>
+        <any>2011-11-01</any>
+    </llibre>
+
+    <llibre ID="9167">
+        <titol>Fahrenheit 451</titol>
+        <autor>Ray Bradbury</autor>
+        <any>1953-03-19</any>
+    </llibre>
+
+    <llibre ID="8402">
+        <titol>La Fundación</titol>
+        <autor>Antonio Buero</autor>
+        <any>1974-01-15</any>
+    </llibre>
+</llibreria>

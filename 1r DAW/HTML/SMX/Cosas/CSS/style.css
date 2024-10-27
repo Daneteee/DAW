@@ -1,0 +1,37 @@
+.proba {
+    color: rgb(226, 226, 226);
+    background-color: rgb(44, 38, 77);
+    text-align: center;
+    border: 3px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(13, 0, 73);
+}
+
+body {
+    height: 800px;
+    --opacidad-negro: 0.5;
+    background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))), url("foto.jpg");
+    background-size: cover;
+    background-repeat: unset;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.principal {
+    color: beige;
+    text-align: center;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 15%;
+    margin-bottom: 50%;
+}
+
+.entradaunica {
+    margin-top: 5rem;
+    background-color: #fff;
+    padding: 5rem;
+    width: auto;
+    box-sizing: border-box;
+}

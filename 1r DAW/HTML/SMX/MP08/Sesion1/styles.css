@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    color: rgb(99, 0, 102);
+    background-color: rgb(186, 167, 255);
+    border: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius: 20px;
+    padding: 25px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+body{
+    background-color: rebeccapurple;
+    justify-content: center;
+    margin: 25px;
+}
+
+h2{
+    color: beige;
+    text-align: center;
+}
+
+p{
+    color: beige;
+}
+
+h3{
+    color: beige;
+    text-align: center;
+}
+
+h4{
+    color: beige;
+    text-align: center; 
+}
+
+h5{
+    color: beige;
+}

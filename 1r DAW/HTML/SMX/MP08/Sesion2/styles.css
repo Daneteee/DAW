@@ -1,0 +1,55 @@
+h1 {
+    text-align: center;
+    color: rgb(99, 0, 102);
+    background-color: rgb(186, 167, 255);
+    border: 10px;
+    border-style: solid;
+    border-color: blueviolet;
+    border-radius: 20px;
+    padding: 25px;
+    position: sticky;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+body {
+    background-color: rebeccapurple;
+    justify-content: center;
+    margin: 25px;
+}
+
+.bloque {
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+p {
+    color: rgb(0, 0, 0);
+}
+
+#bloque_principal {
+    margin-top: 5rem;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 5rem;
+    width: 50%;
+}
+
+#descarga {
+    text-align: center;
+}
+
+#shogun {
+    top: 20rem;
+    left: 0px;
+    width: 20%;
+    height: 50%;
+    position: fixed;
+}
+
+#xiao {
+    top: 20rem;
+    left: 95rem;
+    width: 20%;
+    height: 50%;
+    position: fixed;
+}

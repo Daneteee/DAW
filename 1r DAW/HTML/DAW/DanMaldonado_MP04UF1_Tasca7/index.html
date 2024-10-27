@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Món Pa</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <!--Aqui vinculem el css-->
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+    <!--Aqui es troba la icona-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+    
+    <!--Una imatge que ens torna al inici de la pàgina-->
+    <div class="icona">
+        <a href="index.html">
+            <img class="icona" src="favicon.ico" alt="Inici">
+        </a>
+    </div>
+
+    <!--Aquest és el bloc principal on es trobarà tota la informació-->
+    <div id="bloc">
+        <div id="titol">
+            <h1>Benvinguts a Món Pa</h1>
+            <h2>Farem que tothom mengi pa :D</h2>
+        </div>
+        <p class="text">El pa és un aliment bàsic que forma part de la dieta tradicional a Europa, l'Orient Mitjà, l'Índia, l'Amèrica i Oceania. S'acostuma a preparar mitjançant l'enfornament d'una pasterada o massa elaborada fonamentalment amb farina de cereals com el blat, sal i aigua. La barreja, algunes vegades, acostuma a contenir llevats perquè fermenti la massa i sigui més esponjosa i tendra.</p>
+        
+        <!--Llista desordenada de pàgines que ens porten als pans-->
+        <div id="llista">
+            <h3>Altres pans:</h3>
+            <ul>
+                <li><a href="blanc.html">Pa blanc</a></li>
+                <li><a href="integral.html">Pa integral</a></li>
+                <li><a href="segol.html">Pa de sègol</a></li>
+                <li><a href="mare.html">Pa de massa mare</a></li>
+
+            </ul>
+        </div>
+        <br>
+        <br>
+
+        <!--Llista ordenada dels millors pans del món-->
+        <div id="llista">
+            <h3>Top 5 pans del món:</h3>
+            <ol>
+                <li>Baguette (Francia)</li>
+                <li>Ciabatta (Italia)</li>
+                <li>Naan (India)</li>
+                <li>Pumpernickel (Alemania)</li>
+                <li>Bolillo (México)</li>
+              </ol>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <!--Una taula amb els pans que podem trobar a la nostra pàgina-->
+        <table>
+            <tr>
+                <th>Pa blanc</th>
+                <th>Pa integral</th>
+                <th>Pa de sègol</th>
+                <th>Pa de massa mare</th>
+            </tr>
+            <tr>
+                <td><a href="pa-blanc.jpg"><img class="imatge-td" src="pa-blanc.jpg" alt="Pa blanc"></a></td>
+                <td><a href="pa-integral.jpg"><img class="imatge-td" src="pa-integral.jpg" alt="Pa integral"></a></td>
+                <td><a href="pa-segol.jpg"><img class="imatge-td" src="pa-segol.jpg" alt="Pa de segol"></a></td>
+                <td><a href="pa-mare.jpg"><img class="imatge-td" src="pa-mare.jpg" alt="Pa mare"></a></td>
+            </tr>
+        </table>
+    
+        <!--Un iframe amb les panaderies més properes-->
+       <div id="panaderies">
+        <h3>Panaderies properes:</h3>
+        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Panaderia+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="500" height="400" frameborder="0" scrolling="auto"></iframe>
+       </div>
+
+        
+
+    </div>
+
+    
+</body> 
+</html>
