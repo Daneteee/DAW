@@ -1,12 +1,13 @@
 from user_manager import UserManager
 from pymongo import MongoClient
+from trainer import Trainer
 from utils import Utils
 from user import User
 
 def main():
     # Conectem amb pymongo i seleccionem BBDD i col·lecció
     db = Utils.getDb()
-    user_collection = db['users']
+    user_collection = Utils.getDb('users')
 
     # Creem una instancia de UserManager amb la col·lecció especificada
     user_manager = UserManager(collection=user_collection)
@@ -61,7 +62,17 @@ def main():
                     elif role == "Entrenador":
                         current_user = Trainer(username, password, role)
                     
-                    
+                    while current_user:
+                
+                        current_user.printMenu()
+                        user_options = Utils.valid_input("Selecciona una opció: ", ["1", "2"])
+                        
+                        if user_options == '1':
+                            current_user.createRoutine()
+                        
+                        elif user_options == '2':
+                            current_user.addSchedule()
+                        
                 else:
                     print("\nERROR: Credencials incorrectes")
                 

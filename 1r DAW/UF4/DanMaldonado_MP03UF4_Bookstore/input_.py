@@ -183,11 +183,9 @@ class Input_:
             for key, value in options.items():
                 print(f"    {key} - {value}")
 
-            option = input("\nQue vols fer (0 per sortir)? ").capitalize()
+            option = input("\nQue vols fer? ").capitalize()
 
-            if option == "0":
-                leave = True
-            elif option in options:
+            if option in options:
                 return options[option]
             else:
                 print("ERROR: Opció invàlida.")

@@ -1,24 +1,26 @@
 from pymongo import MongoClient
+from datetime import datetime
 
 class Utils():
     
     @staticmethod
-    def print_menu(menu, title="Menu", leave_option=True):
+    def print_menu(options, title="Menu", leave_option=True):
         """Mostrem el menú d'opcions.
 
         Args:
-            menu (list): Llista de cada funció
+            options (list): Llista de cada funció
         """
-        mida = len(menu)
+        mida = len(options)
         
         print(f"""
                *:･ﾟ✧*:･ﾟ--| {title} |--･ﾟ:*✧･ﾟ:*\n """)
         
         for i in range(mida):
-            print(f"{i+1}. {menu[i]}")
+            print(f"{i+1}. {options[i]}")
         
         if leave_option:
             print(f"{mida+1}. Sortir")
+
 
     @staticmethod
     def check_int(num, enter_valid=False):
@@ -35,6 +37,7 @@ class Utils():
             return "" if enter_valid and num == "" else int(num)
         except ValueError:
             return False
+
 
     @staticmethod
     def correct_range(num, minim=None, maxim=None):
@@ -61,6 +64,7 @@ class Utils():
         else:
             return True
 
+
     @staticmethod
     def secure_int(text, min=None, max=None, enter_valid=False):
         """Comprovem que un nombre sigui valid i es trobi entre els valors especificats.
@@ -78,10 +82,12 @@ class Utils():
         correct_num = False
         while not correct_num:
             num = input(text)
-            num = check_int(num, enter_valid)
-            correct_num = correct_range(num, min, max) if num != '' else True
+            num = Utils.check_int(num, enter_valid)
+            correct_num = Utils.correct_range(num, min, max) if num != '' else True
         return num
     
+    
+    @staticmethod
     def valid_input(text, options):
         """ Comprovem que l'usuari introdueixi opcions vàlides a un input.
 
@@ -98,6 +104,69 @@ class Utils():
             return Utils.valid_input(text, options)
         else:
             return option
+    
+    
+    # Donat un diccionari d’opcions, només permet una opció correcta a més afegeix l’opció 0 per sortir i retorna
+    # l’opció.
+    @staticmethod
+    def input_option(message, options, input_message="\nQue vols fer? "):
+        """Validem que s'introdueixi una opció correcta d'un diccionari d'opcions.
+
+        Args:
+            message (str): Missatge a mostrar.
+            options (dict): Diccionari d'opcions.
+
+        Returns:
+            str: La opció si aquesta es correcta o missatge en cas de sortir.
+        """
+        leave = False
+        while not leave:
+            print(message)
+            for key, value in options.items():
+                print(f"    {key} - {value}")
+
+            option = input(input_message).capitalize()
+
+            if option in options:
+                return options[option]
+            else:
+                print("ERROR: Opció invàlida.")
+        return "Sortint..."
+    
+    
+    # Només permet lletres i espais
+    @staticmethod
+    def input_text(message):
+        """Introducció de text
+
+        Args:
+            message (str): Missatge a mostrar.
+
+        Returns:
+            str: Retornem l'string.
+        """
+        entry = ""
+        is_valid = False
+        while not is_valid:
+            entry = input(message + ": ")
+            is_valid = all([c.isalpha() or c.isspace() for c in entry])
+            if not is_valid:
+                print("ERROR: Només permet lletres i espais.")
+        return entry
+    
+    @staticmethod
+    def validate_time():
+        is_valid = False
+        while not is_valid:
+            time_input = input("Hora (HH:MM): ") 
+            try:
+                time_input = datetime.strptime(time_input, "%H:%M")
+                is_valid = True
+                
+            except ValueError:
+                print("ERROR: Hora invàlida (format HH:HH).")  
+        
+        return time_input 
     
     @staticmethod
     def getDb(collection=None):
