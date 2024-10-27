@@ -47,7 +47,7 @@ def main():
                 print("\nJa estàs connectat!!")
                 print(f"Usuari: {current_user}")
                 
-            #  Si no hi ha cap usuari connectat iniciem sessió
+            #  Si no hi ha cap usuari connectat iniciem sessióa
             else:
                 username = input("Usuari: ")
                 password = input("Contrasenya: ")
@@ -56,23 +56,37 @@ def main():
                 if user_manager.login(username, password):
                     print("Sessió iniciada correctament")
                     role = user_manager.getRole(username)
-                    
+                    userID = user_manager.getUserID(username)
+
+                    # Creem la instancia de l'usuari depenent del seu rol
                     if role == "Usuari":
                         current_user = User(username, password, role)
                     elif role == "Entrenador":
                         current_user = Trainer(username, password, role)
                     
-                    while current_user:
-                
-                        current_user.printMenu()
-                        user_options = Utils.valid_input("Selecciona una opció: ", ["1", "2"])
-                        
-                        if user_options == '1':
-                            current_user.createRoutine()
-                        
-                        elif user_options == '2':
-                            current_user.addSchedule()
-                        
+                        while current_user:
+                    
+                            current_user.printMenu()
+                            user_options = Utils.valid_input("Selecciona una opció: ", ["1", "2", "3", "4", "5", "6"])
+                            
+                            if user_options == '1':
+                                current_user.createRoutine()
+                            
+                            elif user_options == '2':
+                                current_user.addSchedule()
+                            
+                            elif user_options == '3':
+                                current_user.listAttendants()
+                            
+                            elif user_options == '4':
+                                current_user.addUserToRoutine()
+
+                            elif user_options == '5':
+                                current_user.removeUserFromRoutine()
+                                
+                            else:
+                                current_user = None
+
                 else:
                     print("\nERROR: Credencials incorrectes")
                 

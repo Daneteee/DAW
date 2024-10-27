@@ -13,7 +13,3 @@ class User:
         
     def __str__(self):
         return self.name
-    
-    def printMenu(self):
-        pass    
-    

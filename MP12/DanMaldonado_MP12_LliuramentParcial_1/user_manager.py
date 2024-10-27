@@ -39,3 +39,14 @@ class UserManager:
             else:
                 print("ERROR: L'usuari no existeix.")
                 return None
+            
+            
+    def getUserID(self, username):
+        # Busquem l'usuari per nom d'usuari i retornem el seu ObjectID
+        user = self.collection.find_one({"username": username})
+        if user:
+            return user['_id']  # Retorna el ObjectID (sense convertir a string)
+        
+        else: 
+            print("ERROR: L'usuari no existeix.")
+            return None
