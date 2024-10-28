@@ -17,6 +17,8 @@ function addValue(value) {
     inputScreen.value = currentValue;
 }
 
+
+ 
 function calculate() {
     if (currentValue) {
         try {
