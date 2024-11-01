@@ -1,0 +1,31 @@
+<!-- Donat el següent codi html afegiu un botó per a cada vocal, a més un botó de reset, en prémer un botó d’una vocal 
+canvia totes les vocals del text, per aquella vocal. Quan es prem reset, torna a quedar el text original. -->
+
+<!-- El text inicial no pot aparèixer al codi JScript.
+Es valorarà l’ús de funcions fletxa i de tractament massiu d’arrays. Evitar bucles innecessaris, i codi net i comentat. -->
+
+
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <title>Examen Exercici 2</title>
+    </head>
+    <body>
+        
+        <h1>Examen Javascript-Exercici 2</h1>
+        <h2>La Mosca</h2>
+        <p>una mosca volava per la llum</p>
+        <p>i la llum es va apagar</p>
+        <p>i la pobra mosca es va quedar a la fosca</p>
+        <p>i la pobra mosca no va poder volar</p>
+        
+        <button onclick="replace_vowels('a')">a</button>
+        <button onclick="replace_vowels('e')">e</button>
+        <button onclick="replace_vowels('i')">i</button>
+        <button onclick="replace_vowels('o')">o</button>
+        <button onclick="replace_vowels('u')">u</button>
+        <button onclick="reset_text()">reset</button>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
