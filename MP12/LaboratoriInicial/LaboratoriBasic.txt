@@ -1,0 +1,519 @@
+Desplegaremos 1 pod de la imagen nginx
+Pondremos un service de tipo NodePort para llegar al pod de nginx 
+ 
+vagrant@master:~$ kubectl get nodes -o wide
+NAME      STATUS   ROLES    AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE           KERNEL-VERSION     CONTAINER-RUNTIME
+master    Ready    master   257d   v1.18.3   10.0.0.10     <none>        Ubuntu 20.04 LTS   5.4.0-29-generic   docker://19.3.8
+worker1   Ready    <none>   257d   v1.18.3   10.0.0.11     <none>        Ubuntu 20.04 LTS   5.4.0-29-generic   docker://19.3.8
+worker2   Ready    <none>   257d   v1.18.3   10.0.0.12     <none>        Ubuntu 20.04 LTS   5.4.0-29-generic   docker://19.3.8
+vagrant@master:~$
+ 
+ 
+ 
+ kubectl api-resources 
+ 
+ kubectl get pod 
+ kubectl get pod -o wide
+
+kubectl run nginx  --image=nginx --port 80
+ kubectl get pod -o wide
+ kubectl describe pod nginx
+ kubectl logs  nginx
+ 
+ 
+ kubectl expose pod nginx --type NodePort --target-port 80 --name service-nginx
+ kubectl get service
+ 
+ kubectl describe service service-nginx
+ 
+Name:                     service-nginx
+Namespace:                default
+Labels:                   run=nginx
+Annotations:              <none>
+Selector:                 run=nginx
+Type:                     NodePort
+IP:                       10.111.230.50
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31475/TCP
+Endpoints:                10.244.1.5:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+http://10.0.0.10:nodeport
+http://10.0.0.11:nodeport
+http://10.0.0.12:nodeport
+
+kubectl delete pod nginx
+kubectl delete service service-nginx
+kubectl get service,pod
+----------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+##Lab1 Laboratorio1 Ejecutando la primera aplicación en Kubernetes pagina 20 pdf1:
+
+kubectl api-resources
+watch kubectl get pod -o wide
+
+##Ver todos los pods del cluster de kubernetes:
+kubectl get pod -A
+
+cat /vagrant/kubernetes-curso/first-app/helloworld.yml
+
+kubectl apply -f /vagrant/kubernetes-curso/first-app/helloworld.yml
+kubectl get pod -o wide
+kubectl describe pod nodehelloworld.example.com
+
+##Ahora creamos un service para lleagar al software de nuestro pod:
+kubectl expose pod nodehelloworld.example.com --type NodePort --name nodehelloworld-service
+kubectl get service
+
+kubectl describe service nodehelloworld
+
+Name: nodehelloworld
+Namespace: default
+Labels: app=helloworld
+Annotations: <none>
+Selector: app=helloworld
+Type: NodePort
+IP: 10.104.223.21
+Port: <unset> 3000/TCP
+TargetPort: 3000/TCP
+NodePort: <unset> 32728/TCP
+
+http://10.0.0.10:nodeport
+http://10.0.0.11:nodeport
+http://10.0.0.12:nodeport
+
+
+
+Podemos lanzar comnados dentro del contenedor:
+
+#kubectl exec nodehelloworld.example.com -- ls /
+#kubectl exec nodehelloworld.example.com -- touch /app/hola.txt
+#kubectl exec nodehelloworld.example.com -- ls –l /app/
+# kubectl exec -ti nodehelloworld.example.com -- bash
+
+kubectl logs nodehelloworld.example.com
+
+Podemos ver los eventos en nuestro cluster:
+[root@docker /]# kubectl get events
+
+kubectl delete pod nodehelloworld.example.com
+kubectl delete pod --help
+kubectl delete pod nodehelloworld.example.com --wait=false
+kubectl delete -f /vagrant/kubernetes-curso/first-app/helloworld.yml
+
+kubectl delete service nodehelloworld-service
+--------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+watch kubectl get pod -o wide
+
+
+##Laboratorio1 Scaling Pods RC pagina 29 pdf1
+##En este laboratorio veremos como podemos scalar pods en kubernetes, trabajando con el objeto ReplicationControler
+
+
+# kubectl apply -f /vagrant/kubernetes-curso/replication-controller/helloworld-repl-controller.yml
+# kubectl get rc -o wide
+
+# kubectl describe pod helloworld-controller-895r8
+# kubectl delete pod helloworld-controller-895r8
+
+Si elimino un pod el rc, levantara otro pod:
+# kubectl get pod -o wide
+
+# kubectl get pods --show-labels
+
+Para escalar nuestro rc, podemos realizarlo mediante el comando:
+
+kubectl scale --replicas=4 -f /vagrant/kubernetes-curso/replication-controller/helloworld-repl-controller.yml
+kubectl scale rc helloworld-controller --replicas=4
+kubectl edit rc helloworld-controller
+
+# kubectl get pod -o wide
+# kubectl get rc
+
+##Crear un service para llegar a los pods:
+kubectl expose rc  helloworld-controller --type=NodePort --name helloworld-controller-service
+kubectl get service
+
+kubectl describe service helloworld-controller-service
+
+http://10.0.0.11:nodeport
+
+
+
+Para finalizar el laboratorio eliminamos el rc, y veremos que se eliminan los pods, asiciados a este rc:
+#kubectl get rc
+# kubectl delete rc helloworld-controller
+# kubectl get pod,rc
+kubectl delete service helloworld-controller-service
+
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+##Laboratorio Labels
+Pagina 4 pdf -->2-Laboratorios basicos kubernetes.pdf
+
+kubectl get pods --show-labels
+
+kubectl get pod -l app=helloworld
+kubectl get pods --selector app=helloworld
+
+kubectl get all -l  app=helloworld
+
+kubectl delete pods -l 'env in (production, development)' --wait=false
+
+##Añadir una label a un pod que esta en ejecucion dentro del cluster:
+kubectl label pods labelex owner=miempresa
+
+kubectl get pod  labelex  -o yaml > pod1.yaml
+
+kubectl run cliente-1 --image=nginx --dry-run=client  -o yaml > conte2.yaml
+kubectl expose pod nginx --type=Nodeport --port=80 --dry-run=client -o yaml > pod1-service.yaml
+
+
+----------------------------------------------------------------------------------------------------------------------
+Laboratorio Pods pagina 1 pdf2:
+
+Desplegamos 1 pod con dos contenedores de docker de imagenes diferentes este fichero
+tiene el contenedor llamado sise y el contenedor llamado shell:
+
+
+kubectl apply -f /vagrant/kubernetes-labs2/pods/pod.yaml
+
+kubectl describe pod twocontainers
+
+kubectl exec twocontainers -c shell -i -t -- bash
+kubectl exec twocontainers -c sise -i -t -- bash
+
+kubectl logs twocontainers -c shell
+kubectl logs twocontainers -c sise
+
+kubectl delete pod  twocontainers --wait=false
+------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+Laboratorio Deployments en kubernetes
+
+##Deployment
+
+https://kubernetes.io/es/docs/concepts/workloads/controllers/deployment/
+
+
+/kubernetes-curso/deployment/helloworld.yml
+
+image:
+wardviaene/k8s-demo
+wardviaene/k8s-demo:2
+
+
+
+wardviaene/k8s-demo:3
+wardviaene/k8s-demo:4
+
+
+##Nota: Debes indicar el parámetro --record para registrar el comando ejecutado en la anotación de recurso kubernetes.io/change-cause.
+##Esto es útil para futuras introspecciones, por ejemplo para comprobar qué comando se ha ejecutado en cada revisión del Deployment.
+
+kubectl apply -f /vagrant/kubernetes-curso/deployment/helloworld.yml --record
+kubectl get deployment,rs,pod
+
+##Creamos un servicio para llegar:
+kubectl expose deployment helloworld-deployment --type=NodePort --name=helloworld-deployment-service
+
+kubectl describe service helloworld-deployment-service
+
+http://10.0.0.11:NodePort
+
+##Ahora actualizamos nuestro deployment a la nueva verion de imagen de docker wardviaene/k8s-demo:2
+
+kubectl set image deployment/helloworld-deployment k8s-demo=wardviaene/k8s-demo:2 --record
+
+# kubectl rollout history deployment helloworld-deployment
+REVISION        CHANGE-CAUSE
+1               kubectl create -f /kubernetes-curso/deployment/helloworld.yml --record
+2               kubectl set image deployment/helloworld-deployment k8s-demo=wardviaene/k8s-demo:2  
+
+
+Ahora podemos volver a tras en nuestra aplicaciones, es decir a la versión anterior:
+# kubectl rollout undo deployment helloworld-deployment
+
+kubectl set image deployment/helloworld-deployment k8s-demo=wardviaene/k8s-demo:2 --record
+##Anotando el Deployment con el comando :
+kubectl annotate deployment.v1.apps/helloworld-deployment kubernetes.io/change-cause="image updated to v2"
+
+kubectl rollout status deployment helloworld-deployment
+
+# kubectl rollout history deployment helloworld-deployment
+
+Ahora podemos comprobar que tenemos 3 revisiones
+# kubectl rollout history deployment helloworld-deployment
+
+Ahora volvemos a la revison 3, que en realidad es una nueva revisión porque se ha convertido en la 6.
+# kubectl rollout undo deployment helloworld-deployment --to-revision=3
+
+##Para scale de pods con un deployment:
+
+kubectl scale deployment helloworld-deployment --replicas=5
+kubectl edit deployments.apps helloworld-deployment
+kubectl scale --replicas=4 -f /vagrant/kubernetes-curso/deployment/helloworld.yml
+
+kubectl delete deployment helloworld-deployment
+kubectl delete -f /vagrant/kubernetes-curso/deployment/helloworld.yml
+
+kubectl delete service helloworld-deployment-service
+kubectl get service,deployment
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+##Laboratorio kubernetes Namespaces##
+pagina 176 pdf1 laboratorio kubernetes.
+
+Los namespaces (espacios de nombres) en Kubernetes permiten establecer un nivel adicional de separación
+ entre los contenedores que comparten los recursos de un clúster
+
+kubectl get namespaces
+NAME                   STATUS   AGE
+default                Active   261d
+kube-node-lease        Active   261d
+kube-public            Active   261d
+kube-system            Active   261d
+
+Kubernetes proporciona dos namespaces por defecto: kube-system y default.
+
+kubectl get pod --namespace kube-system
+kubectl get pod -o wide -n kube-system
+
+kubectl get pods --all-namespaces
+kubectl get pods -A
+ 
+ kubectl create ns formacion
+ kubectl delete ns formacion
+ 
+##Para ver el contexto po defecto en principio el nasmespace default:
+kubectl config get-contexts
+
+kubectl config set-context --current --namespace=formacion
+kubectl config get-contexts
+kubectl get pod
+
+##Para dejar el ns por defecto default
+kubectl config set-context --current --namespace=default
+kubectl config get-contexts
+kubectl get pod 
+
+
+kubectl get ns
+kubectl get namespaces
+
+NAME                   STATUS   AGE
+default                Active   143d
+formacion              Active   137d
+kube-node-lease        Active   143d
+kube-public            Active   143d
+kube-system            Active   143d
+kubernetes-dashboard   Active   105d
+test                   Active   28d
+
+kubectl get pod -n kube-system -o wide
+kubectl get all --all-namespaces
+kubectl describe pod --namespace kube-system  kube-flannel-ds-amd64-dwnv7
+
+##Laboratorio namespaces kubernetes##
+
+kubectl create namespace formacion
+kubectl get ns
+kubectl describe ns formacion
+kubectl run nginx --image=nginx --port 80 -n formacion 
+kubectl expose -n formacion pod nginx --type NodePort --name service-nginx
+kubectl -n formacion describe service service-nginx
+kubectl get pod -n formacion
+kubectl describe pod nginx -n formacion
+
+
+##Para ver el contexto por defecto en principio el nasmespace default:
+kubectl config get-contexts
+
+kubectl config set-context --current --namespace=formacion
+kubectl config get-contexts
+kubectl get pod
+
+kubectl config set-context --current --namespace=default
+kubectl config get-contexts
+kubectl get pod
+
+##Si elimnamos el namespace se eliminan todos los objetos:
+kubectl delete namespace formacion
+kubectl get ns
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+
+###Laboratorio Kubernetes Service Discovery ###
+Pagina 132 pdf1 laboratorios kubernetes.
+
+ kubectl get replicasets.apps -n kube-system
+NAME                        DESIRED   CURRENT   READY   AGE
+coredns-66bff467f8          2         2         2       261d
+
+kubectl get pod -o wide -n kube-system
+
+NAME                               READY   STATUS    RESTARTS   AGE    IP             NODE      NOMINATED NODE   READINESS GATES
+coredns-66bff467f8-rgm9k           1/1     Running   49         261d   10.244.0.178   master    <none>           <none>
+coredns-66bff467f8-rqps4           1/1     Running   49         261d   10.244.0.176   master  
+
+
+
+kubectl get service -o wide -n kube-system
+NAME                                          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                        AGE    SELECTOR
+kube-dns                                      ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP         261d   k8s-app=kube-dns
+
+kubectl describe  service kube-dns -n kube-system
+Name:              kube-dns
+Endpoints:         10.244.0.176:53,10.244.0.178:53
+
+
+##Esto es un ejemplo de si tenemos dos deployments como se comunican a traves de sus services:
+Deployment-->wp-deployment
+rs-->1
+pod-->1
+service wp-service 
+
+Datasource del wp:
+WORDPRESS_DB_NAME:msyql-service.default.svc.cluster.local:3306
+
+
+Deployment-->mysql-deployment
+rs-->1
+pod-->1
+service msyql-service --> Type:ClusterIP
+
+
+¿Qué se puede resolver?
+• Cada vez que se crea un nuevo servicio se crea un registro de tipo A con el nombre
+ servicio.namespace.svc.cluster.local.
+ 
+¿Qué se puede resolver?
+• Cada vez que se crea un nuevo servicio se crea un registro de tipo A con el nombre servicio.namespace.svc.cluster.local.
+• Para cada puerto nombrado se crea un registro SRV del tipo _nombre-puerto._nombre-protocolo.my-svc.my-namespace.svc.cluster.local que resuelve el número del puerto y al CNAME: servicio.namespace.svc.cluster.local.
+• Para cada pod creado con dirección IP 1.2.3.4, se crea un registro A de la forma 1-2-3-4.default.pod.cluster.local.  
+ 
+ 
+ wp-service.default.svc.cluster.local 
+ msyql-service.default.svc.cluster.local
+
+kubectl get service
+
+kubectl run -i --tty centos1 --image=centos:centos7 --restart=Never -- bash
+yum install bind-utils -y
+
+root@centos1 /]#cat /etc/resolv.conf
+nameserver 10.96.0.10
+
+
+[root@centos1 /]#yum install bind-utils -y
+[root@centos1 /]# nslookup www.marca.es
+[root@centos1 /]# nslookup nombre-servicio.default.svc.cluster.local 
+
+##Ahora podemos comprobar service que tengamos en nuestro cluster y resolverlos desde dentro del pod centos1
+
+kubectl get services
+
+www-vol-service
+nginx-service
+
+##En este ejemplo estoy resolviendo el pod  que tiene esta ip 10.244.0.178, desde el contenedor centos1:
+
+[root@centos1 /]#nslookup 10-244-0-181.kube-system.pod.cluster.local
+
+
+##Nos salimos del pod centos1:
+[root@centos1 /]# exit
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+##Healthchecks##
+Pagina 84 pdf1 laboratorios kubernetes.
+
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
+
+##Resumen:
+• Readiness: ¿El contenedor esta listo para recibir trafico?
+• Liveness: ¿El contenedor sigue vivo?
+
+El flujo es el siguiente:
+• Si Readiness falla
+o Kubernetes detiene el trafico hacia el “pod” que falla de la aplicación
+• Si Liveness falla
+o Kubernetes reinicia el pod de la aplicación
+• Si Readiness funciona
+o Kubernetes restablece el tráfico hacia el pod de la aplicación nuevamente
+
+watch kubectl get pod -o wide
+
+cat /vagrant/k8-for-devs-master/healthchecks/healcheck.yaml
+
+kubectl apply -f /vagrant/k8-for-devs-master/healthchecks/healcheck.yaml
+kubectl get pod
+
+kubectl get deployment.apps/deployment-lab -o yaml
+kubectl describe deployment.apps/deployment-lab 
+
+kubectl describe deployment.apps/deployment-lab  |grep -i Liveness
+ 
+Liveness: http-get http://:80/ delay=30s timeout=10s period=10s #success=1 #failure=3
+
+###Explicacion de la salida del comando anterior:
+Lo que esta haciendo un get al 80, cada 10 segundos, con un delay inicial de 10 segundos para que se inicie la aplicación dentro del pod,
+ y que el número de situaciones es 1 para conseguir el healthy y que para considerarlo fallido tendrían que ser tres seguidos
+Un Pod solo se considera healthy si todos los contenedores que lo componen están funcionando correctamente.
+
+
+##Ejemplo`los de comandos para liveness readiness-probes, en este caso para un pod con jboss:
+...
+  containers:
+  - name: jboss-lab
+    image: docker.example.com/jboss:1
+    imagePullPolicy: IfNotPresent
+    
+	livenessProbe:
+	  initialDelaySeconds: 30
+      periodSeconds: 15 
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - /opt/jboss/wildfly/bin/jboss-cli.sh --connect --commands=ls | grep 'server-state=running'
+   
+   readinessProbe:
+	  initialDelaySeconds: 30
+      periodSeconds: 5
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - /opt/jboss/wildfly/bin/jboss-cli.sh --connect --commands=ls | grep 'server-state=running'
+		  
+    livenessProbe:
+          httpGet:
+            path: /status
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 2		  
+------------------------------------------------------------------------------------------------------------------------------------
+
+Laboratorio Health Checks pagina 7
+2-Laboratorios basicos kubernetes.pdf	
+
+kubectl apply -f /vagrant/kubernetes-labs2/healthz/badpod.yaml
+
+##Comprobar siempre los campos READY   STATUS    RESTARTS
+
+kubectl get pod -o wide
+NAME                             READY   STATUS    RESTARTS   AGE    IP               NODE    NOMINATED NODE   READINESS GATES
+badpod                           1/1     Running   5  
+
+kubectl describe pod badpod
+
+		  
+
