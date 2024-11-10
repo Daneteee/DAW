@@ -1,0 +1,217 @@
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E6E6FA; /* Color lavanda como solicitado */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del header */
+header {
+    background: #7b1fa2; /* Color sólido en lugar de gradiente para un look más clean */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Estilos del contenido principal */
+main {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    display: flex;
+    flex: 1;
+    margin-right: 300px; /* Reducido para un sidebar más compacto */
+    padding: 30px;
+}
+
+/* Estilos del sidebar modernizado */
+aside {
+    background: #fff; /* Fondo blanco para más limpieza */
+    padding: 25px;
+    width: 400px; /* Más compacto */
+    position: fixed;
+    right: 0;
+    top: 80px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+aside h2 {
+    color: #7b1fa2;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+aside li a {
+    display: block;
+    color: #555;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: #f8f8f8;
+    text-align: center;
+    font-weight: 400;
+}
+
+aside li a:hover {
+    background: #7b1fa2;
+    color: #fff;
+    transform: translateX(3px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del footer */
+footer {
+    background: #7b1fa2;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilos para formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+}
+
+form label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #7b1fa2;
+    box-shadow: 0 0 0 3px rgba(123, 31, 162, 0.1);
+}
+
+form input[type="submit"] {
+    background: #7b1fa2;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+form input[type="submit"]:hover {
+    background: #6a1b9a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(123, 31, 162, 0.2);
+}
+
+form input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(123, 31, 162, 0.2);
+}
+
+/* Estilos para mensajes de error */
+.error-message {
+    color: #d32f2f;
+    background: #fde8e8;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.main-content {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.entry {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.entry h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.entry p {
+    font-size: 16px;
+    color: #555;
+}
+
+.entry hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+}
