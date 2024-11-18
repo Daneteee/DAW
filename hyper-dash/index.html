@@ -230,7 +230,7 @@
         ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.fill();
       }
-    }
+    } 
     
     function updateCamera() {
       const targetX = gameState.player.x - canvas.width/2;
@@ -308,6 +308,8 @@
         gameState.player.attackAngle = angle;
         gameState.player.attackCooldownTimer = gameState.player.attackCooldown;
         
+        const attackRange = gameState.player.radius + 50;
+
         otherPlayers.forEach(otherPlayer => {
           const dx = otherPlayer.x - gameState.player.x;
           const dy = otherPlayer.y - gameState.player.y;
@@ -315,7 +317,7 @@
           const enemyAngle = Math.atan2(dy, dx);
           
           const angleDiff = Math.abs(enemyAngle - angle);
-          if (distance < gameState.player.radius + 30 && 
+          if (distance < attackRange && 
               (angleDiff < Math.PI/4 || angleDiff > Math.PI * 7/4)) {
             gameState.score += 100;
             scoreElement.textContent = "Score: ${gameState.score}";
