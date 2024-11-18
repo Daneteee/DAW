@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>HTML & CSS: Curs pràctic avançat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .contenidor {
+            width: 960px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .main-content {
+            display: flex;
+        }
+
+        .left-column {
+            width: 260px;
+            padding-right: 20px;
+        }
+
+        .right-column {
+            width: 700px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul.content-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenidor">
+        <header>
+            <h1>HTML & CSS: Curs pràctic avançat - més fàcil del que sembla!</h1>
+        </header>
+        
+        <div class="contingut-principal">
+            <div class="columna-esquerra">
+                <h2>Dades del llibre</h2>
+                <ul>
+                    <li>Títol: HTML & CSS: Curs pràctic avançat</li>
+                    <li>Autor: Sergio Luján Mora</li>
+                    <li>Editorial: Publicacions Altaria</li>
+                    <li>Any de publicació: 2015</li>
+                    <li>ISBN: 978-84-944049-4-8</li>
+                </ul>
+            </div>
+
+            <div class="columna dreta">
+                <h2>Descripció del llibre</h2>
+                <p>
+                    Tot i que els inicis d'Internet es remunten als anys seixanta, no ha estat fins als noranta que, gràcies a la Web, el seu ús s’ha escampat per tot el món. En pocs anys, la Web ha evolucionat com mai: hem passat de pàgines senzilles amb poques imatges i continguts estàtics que visitaven uns quants usuaris a pàgines complexes i dinàmiques, amb continguts que provenen de bases de dades i que són visitades per milers d’usuaris alhora. Com uns centres comercials a l’hora punta, però digitals.
+                </p>
+
+                <p>
+                    Totes les pàgines estan construïdes amb la mateixa tecnologia: el Llenguatge de marques d’hipertext, HTML, i els Fulls d’estil en cascada, CSS. Així és com es fan màgiques!
+                </p>
+
+                <p>
+                    Aquest llibre és adequat per a qualsevol persona amb ganes de crear les seves pròpies pàgines web. No calen coneixements previs, només saber utilitzar un ordinador i navegar per la Web sense perdre's en massa finestres obertes.
+                </p>
+
+                <h2>Contingut del llibre</h2>
+                <p>
+                    El llibre s’estructura en tres parts ben diferenciades, com un menú de tres plats:
+                </p>
+                <ul class="content-list">
+                    <li>A la primera part es treballen conceptes generals per desenvolupar pàgines web; s'expliquen les estructures física i lògica d’un lloc web. També es detalla com afecta l'estructura física a les URL i enllaços del lloc web. Passem pel concepte d'"estàndard web", un terme general per als estàndards que defineixen com funciona tot, com HTML i CSS. Aquest és el punt on s’entén que una URL no és només una sopa de lletres!</li>
+
+                    <li>A la segona part es treballa HTML. Partint de l’estructura bàsica d’una pàgina web, s’expliquen les etiquetes HTML per definir el text, enllaços, llistes, taules, formularis i elements multimèdia. La part divertida on els vídeos de gats i les taules amb emojis comencen a fer sentit.</li>
+
+                    <li>A la tercera i última part s’explica CSS, el llenguatge que fa que una web passi de semblar un treball d’institut a una web professional. S’explica com utilitzar els colors, com definir la presentació del text, de les taules i dels formularis, i com fer transformacions i transicions perquè el teu lloc web tingui un aspecte increïble. Finalment, la teva web semblarà un lloc al qual vols tornar, no només un experiment!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

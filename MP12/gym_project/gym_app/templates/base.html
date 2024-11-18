@@ -88,10 +88,10 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inici</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'profile_edit' %}">Editar perfil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Tancar sessió</a></li>
                     {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sessió</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registre</a></li>
                     {% endif %}
                 </ul>
             </div>
