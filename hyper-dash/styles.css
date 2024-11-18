@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+    font-family: Arial, sans-serif;
+}
+
+#gameCanvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+#score, #playerCount, .controls-help, #dashCooldown {
+    position: fixed;
+    color: white;
+    z-index: 100;
+}
+
+#score {
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+}
+
+#playerCount {
+    top: 50px;
+    left: 20px;
+    font-size: 18px;
+}
+
+.controls-help {
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    text-align: right;
+}
+
+#dashCooldown {
+    right: 20px;
+    bottom: 20px;
+    width: 100px;
+    height: 8px;
+    background: #333;
+    border: 1px solid #666;
+    border-radius: 4px;
+}
+
+#dashCooldownFill {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: #ffffff;
+    transition: width 0.1s linear;
+    border-radius: 4px;
+}
