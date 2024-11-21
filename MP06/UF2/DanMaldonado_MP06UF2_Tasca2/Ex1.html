@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulari de Títols de Pel·lícules</title>
+</head>
+<body>
+    <h1>Títols de Pel·lícules</h1>
+
+    <form id="movie_form">
+        <input type="text" id="movie_title" name="movie_title" required>
+        <!-- Cambiar el tipo de submit a button -->
+        <button type="button" id="save_button">Desar</button>
+    </form>
+
+    <h2>Pel·lícules afegides</h2>
+    <ul id="movie_list"></ul>
+
+    <script>
+        // Comprovem si el navegador admet LocalStorage
+        if (typeof(Storage) !== "undefined") {
+
+            // Obtenim el valor emmagatzemat al LocalStorage amb la clau "movies"
+            let storedMovies = localStorage.getItem("movies");
+
+            // Si no hi han pel·lícules guardades agafem una array buida
+            const movie_list = storedMovies ? JSON.parse(storedMovies) : [];
+
+            // Funció per mostrar les pel·lícules
+            function show_movies() {
+                const list = document.getElementById("movie_list");
+
+                // Buidem la llista per no duplicar les entrades
+                list.innerHTML = ""; 
+                movie_list.forEach(movie => {
+                    const li = document.createElement("li");
+                    li.textContent = movie.value;
+                    list.appendChild(li);
+                });
+            }
+
+            // Mostrem les pel·lícules
+            show_movies();
+
+            // Formulari per afegir un nou títol 
+            document.getElementById("save_button").addEventListener("click", function() {
+                const title_input = document.getElementById("movie_title");
+
+                // Netegem possibles errors d'escriptura
+                const title = title_input.value.trim();
+
+                // Comprovem que el títol no sigui buit
+                if (title) {
+
+                    // Afegim la nova pel·lícula a la llista
+                    const movie = { title: "titol", value: `${title}` };
+                    movie_list.push(movie);
+
+                    // Guardem les dades a LocalStorage
+                    localStorage.setItem("movies", JSON.stringify(movie_list));
+
+                    // Actualitzem la llista mostrada
+                    show_movies();
+
+                    // Buidem el camp del formulari
+                    title_input.value = "";
+
+                } else {
+                    alert("Sisplau, introdueix un títol de pel·lícula.");
+                }
+            });
+        } else {
+            alert("ERROR: Navegador incompatible amb LocalStorage.");
+        }
+    </script>
+</body>
+</html>

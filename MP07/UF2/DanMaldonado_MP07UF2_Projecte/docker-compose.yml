@@ -1,3 +1,4 @@
+ 
 version: '3.8'
 
 services:
@@ -19,9 +20,15 @@ services:
       MYSQL_DATABASE: blog
     ports:
       - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
     networks:
       - blog_network
 
 networks:
   blog_network:
     driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

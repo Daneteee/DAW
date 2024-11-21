@@ -1,17 +1,29 @@
 <aside>
     <h2>Menú</h2>
     <ul>
-        <!-- Verificar si el usuario está logueado -->
-        <?php if (!isset($_SESSION['user_id'])): ?>
-            <!-- Si el usuario no ha iniciado sesión, mostrar los formularios de login y registro -->
-            <!-- <li><h3>Iniciar Sesión</h3>
-            <?php //include 'login.php'; // Incluir el formulario de login ?>
-            </li> -->
-            <li><h3>Registrar Usuario</h3>
-            <?php include 'register.php'; // Incluir el formulario de registro ?>
+        <?php if (!isset($_SESSION['user_id'])):?>
+            <li>
+                <h3>Iniciar Sesión</h3>
+
+                <?php if (!empty($_SESSION['errors']['login'])): ?>
+                    <p style="color:red;"><?php echo $_SESSION['errors']['login']; ?></p>
+                    <?php unset($_SESSION['errors']['login']);?>
+                <?php endif; ?>
+                
+                <form action="login.php" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" required>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" required>
+                    <input type="submit" value="Iniciar sesión">
+                </form>
+            </li> 
+            <li>
+                <br><br>
+                <h3>Registrar Usuario</h3>
+                <?php include 'register.php'; ?>
             </li>
         <?php else: ?>
-            <!-- Si el usuario ha iniciado sesión, mostrar la opción para cerrar sesión -->
             <li><a href="logout.php">Cerrar sesión</a></li>
         <?php endif; ?>
     </ul>

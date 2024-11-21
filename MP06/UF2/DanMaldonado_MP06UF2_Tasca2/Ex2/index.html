@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificació d'edat</title>
+  <style>
+    body {
+      background-color: gray;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+  
+    .content {
+      filter: blur(10px); /* Desenfoque inicial */
+      pointer-events: none; /* Evitar interacción mientras está desenfocado */
+      transition: filter 0.3s ease; /* Transición suave */
+    }
+  
+    .content.visible {
+      filter: blur(0); /* Elimina el desenfoque */
+      pointer-events: auto; /* Permitir interacción */
+    }
+  
+    .ask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: gray;
+    }
+  
+    #restricted {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      color: black;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    #restricted.visible {
+      display: block; /* Mostrar solo cuando sea necesario */
+    }
+  
+    .fixed-button {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>  
+</head>
+<body>
+  <div id="ask" class="ask">
+    <div>
+      <p id="ask-text">Ets major d'edat?</p>
+      <button onclick="age_verification(true)">Sí</button>
+      <button onclick="age_verification(false)">No</button>
+    </div>
+  </div>
+
+  <div id="content" class="content">
+    <h1>Lorem Ipsum</h1>
+  <p>Lorem ipsum dolor sit amet. Qui error exercitationem ex consequatur eligendi quo quibusdam assumenda ea quibusdam numquam eos soluta veniam ad numquam mollitia aut accusamus voluptatem. Et minus sunt At quibusdam Quis est rerum aliquam sit sint sint est voluptas eveniet. Aut voluptas quisquam est praesentium rerum id sint nihil. Et omnis ipsa eos porro rerum aut omnis enim ad fugiat ipsa rem vero quia. Quo inventore neque ea molestias voluptas aut veritatis internos? Id molestiae totam et labore obcaecati ut inventore veritatis cum officia laudantium ea optio sapiente non laudantium voluptas quo modi veritatis. Et eius rerum sed vero magni qui consequatur quisquam ut consequatur quia. Et accusantium vitae ut sapiente nostrum ut aliquam laborum eum animi minus. </p><p>Aut quia quis eos consequatur recusandae eos magni quidem est debitis odio qui distinctio quisquam. Qui perferendis sunt eum modi placeat quo voluptatem veniam eos commodi dolores. Non iure sunt 33 maxime voluptate aut placeat galisum et minus quia est maiores ipsum est quia amet eos temporibus consequuntur. Aut doloremque similique est consectetur nobis et velit ratione sed laborum nostrum qui ipsam reprehenderit aut dignissimos molestias. Eum deleniti Quis et incidunt sint vel dolor officiis et iusto voluptate qui officiis internos qui neque voluptatum! Ea internos amet eum unde laborum est nesciunt voluptatibus. Qui soluta illum et illo voluptatem est iste atque. 33 perspiciatis nesciunt qui placeat facere sit officia similique sed maiores dolorem. </p><p>Et quas labore ea facere repellendus et reprehenderit quod et enim amet non tempora molestias. Sed provident esse ad iusto deleniti et mollitia dolores et porro explicabo? Sed repudiandae laboriosam et quisquam provident aut earum deserunt? Et consequuntur omnis et unde suscipit non dolorem quasi. Ea nisi consequuntur qui sequi possimus ab officia quasi. Et eveniet incidunt ad consequuntur placeat aut ratione reprehenderit. Et iure pariatur ea excepturi nostrum et consequatur reprehenderit et voluptas suscipit ut saepe repellendus At fuga laborum qui animi reiciendis. Est fugit deserunt qui laboriosam natus vel dignissimos exercitationem cum tempore ipsam eos temporibus inventore aut odit ipsum ut doloribus voluptates. Aut doloremque pariatur et fugit eaque aut deserunt doloremque est rerum minima sit delectus necessitatibus est nihil quas qui fuga ipsa? Et reprehenderit nostrum vel incidunt ducimus non dolor consequatur eos ducimus nulla. Qui minus totam sed quia deserunt aut voluptatem pariatur et voluptates ipsam ut voluptatem exercitationem rem aperiam ullam sit quae magni. </p><p>Non officia dolor At velit quam aut sunt adipisci in consequatur tempore eum tempore quasi et minus distinctio eos delectus consequuntur. Qui rerum cupiditate et officia perspiciatis aut placeat sint. Ut doloribus earum rem dolores nulla est consequuntur fugiat. Cum deleniti ipsa ad beatae assumenda a amet nulla aut voluptatem modi et aliquam totam aut voluptatem fugit et ducimus molestias? Non praesentium quam et culpa saepe ut minus officiis et temporibus officiis eos provident vero et alias odit. Ea officiis sunt et asperiores corporis aut veniam totam vel numquam quos est facere inventore cum obcaecati exercitationem rem alias provident. Ut iure similique eos fuga accusantium est itaque amet et cupiditate quasi eum numquam accusamus aut laborum sequi. Eos aliquam nostrum est repellendus omnis ut nisi amet non obcaecati rerum At aperiam veniam sed atque architecto! Rem accusamus numquam et molestiae quam vel modi iure nam enim deserunt in esse repellendus aut exercitationem omnis. Sit quia veniam aut asperiores aliquam quo saepe minus qui fuga sunt! Sit aperiam deleniti est corporis pariatur a rerum placeat hic reprehenderit earum cum similique omnis. </p><p>Aut quia eveniet aut quod labore non error accusantium ut galisum quas id quam magnam. Est dolor fuga At dolorum quam ut vero voluptate et iste dolor! Est aspernatur accusamus aut sint praesentium ut necessitatibus voluptas est accusamus nihil a accusantium officia aut cumque laboriosam in dolores rerum. Sit repellendus voluptatum aut totam facilis aut quas expedita. Ad dolorem ullam aut vero quas et amet placeat qui officiis aliquam. Ab maiores nesciunt ea fugiat veniam vel iste galisum aut odit tempora. Et provident eveniet 33 praesentium recusandae ad officia quae vel internos fugiat sit fugit ratione quo nostrum nemo. Sit natus velit ex nostrum dolores eum voluptatem officia est beatae cumque et exercitationem veniam quo sunt distinctio qui fuga animi. Nam veritatis unde ad veritatis suscipit aut inventore pariatur eum obcaecati consequatur in odit tempore et molestiae laborum qui assumenda laboriosam. Eos corporis ullam et consectetur dolorem qui quas consequatur At vero illo ut illo facere. Aut ipsum autem et tempora consequatur sed sunt expedita At enim nesciunt hic laboriosam quia et repellat suscipit nam totam provident! Ab provident tempore quo sequi fugiat qui fugiat sint. Non repellat excepturi non sint nulla aut iure voluptas aut omnis perspiciatis. Sit rerum harum eum fuga molestiae ad beatae quasi. </p><p>Ad quaerat numquam eum officiis culpa qui dolor libero ut consectetur dolor. Ex galisum cupiditate est ullam quaerat ut odio quidem ut quia quidem ea nemo iste sed quia quibusdam? Ut illum veritatis aut laudantium nulla nam incidunt recusandae aut enim quod sed repellendus repellat. Est deserunt velit qui repellendus animi cum eligendi similique qui enim alias quo molestiae deserunt qui veniam enim. Vel architecto accusamus sed dignissimos perspiciatis a porro nobis ut tempora dolorum qui officia ullam et officiis rerum hic porro velit! Eos fugiat dolorum ad cupiditate rerum ad mollitia sapiente sit labore vero. Qui dolor porro ut corporis quisquam est ducimus consectetur et magnam obcaecati et neque dolor At delectus harum non deleniti error. Aut cupiditate facere sed voluptates dolores in molestias corrupti. Et facere facilis ea maxime voluptatem sit harum corporis ex voluptatibus illum nam dicta voluptatem non maiores deleniti. Qui enim quidem et impedit nihil quo quia incidunt ex tempora velit sed voluptates voluptatem. Ea culpa velit qui ipsa odit nam porro illum ad dolores nobis. Qui beatae distinctio et quos laboriosam ut corrupti porro est dolore vitae est voluptate voluptate quo velit quam. Eos fugiat eveniet sit galisum dolorum ut cumque tempore! Aut tempora molestias ea incidunt incidunt ea beatae unde sit eveniet molestias. </p>
+  </div>
+
+  <div id="restricted" class="content">
+    <h1>Ho sentim, només si ets adult pots veure aquesta pàgina</h1>
+    <p>Prova a recarregar la web</p>
+    <button onclick="retry_age_verification()">Quina badada, vull tornar a respondre</button>
+  </div>
+
+  <button class="fixed-button" onclick="Cookie.clear_all()">Esborra totes les galetes</button>
+
+  <script src="cookie.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const age = Cookie.get("age");
+      const ask = document.getElementById("ask");
+      const content = document.getElementById("content");
+      const restricted = document.getElementById("restricted");
+      const askText = document.getElementById("ask-text");
+
+      // Netejem la cookie edat
+      Cookie.delete("age");
+
+      // Verifiquem si es la primera visita
+      const is_first_visit = !Cookie.get("first_visit");
+
+      // Mostrem un missatge o un altre depenent de si es la primera visita i en cas que ho sigui creem la cookie
+      if (is_first_visit) {
+        askText.textContent = "Ets major d'edat?";
+        Cookie.set("first_visit", true, { path: "/", expires: 365 * 24 * 60 * 60 });
+      } else {
+        askText.textContent = "Disculpa les molèsties, ens hem d'assegurar que ets major d’edat. Ets major d'edat?";
+      }
+
+      // Manejo de cookies de edad
+      if (age === "adult") {
+        ask.style.display = "none";
+        content.classList.add("visible");
+      } else if (age === "minor") {
+        ask.style.display = "none";
+        restricted.classList.add("visible");
+      } else {
+        ask.style.display = "flex";
+      }
+    });
+// Recargar la página después de seleccionar la edad
+    // Funció per crear una cookie o un altre depenent de l'edat
+    function age_verification(is_adult) {
+
+      // Utilitzem una ternaria per simplificar
+      Cookie.set("age", is_adult ? "adult" : "minor", { path: "/", expires: 365 * 24 * 60 * 60 });
+      location.reload(); 
+    }
+
+
+    // Funció per tornar a verificar l'edat
+    function retry_age_verification() {
+      Cookie.delete("age");
+      location.reload(); 
+    }
+
+  </script>
+</body>
+</html>

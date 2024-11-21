@@ -9,6 +9,3 @@ $database = "blog";
 $db = mysqli_connect($host, $usuari, $password, $database);
 
 mysqli_query($db, "SET NAMES 'utf8'");
-
-
-?>
