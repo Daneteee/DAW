@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Tanquem la sessió
 session_unset();
 session_destroy();
 

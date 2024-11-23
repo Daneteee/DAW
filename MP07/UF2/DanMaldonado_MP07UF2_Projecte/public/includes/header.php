@@ -1,5 +1,9 @@
 <?php
 session_start();
+require_once 'helpers.php'; 
+require_once 'db_connection.php'; 
+
+$categories = llistarCategories($db);
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -13,3 +17,8 @@ session_start();
 <header>
     <h1>DaneBlog</h1>
 </header>
+
+<!-- Categories -->
+<nav class="categories-bar">
+    <?php mostraCategories($categories); ?>
+</nav>

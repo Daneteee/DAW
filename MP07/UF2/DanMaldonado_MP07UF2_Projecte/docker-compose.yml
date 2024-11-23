@@ -25,6 +25,19 @@ services:
     networks:
       - blog_network
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: 1234
+    ports:
+      - "8081:80"
+    networks:
+      - blog_network
+
+
 networks:
   blog_network:
     driver: bridge

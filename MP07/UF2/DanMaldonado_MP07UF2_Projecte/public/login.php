@@ -1,8 +1,8 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión al principio
+session_start(); 
 include 'db_connection.php';
 
-// Inicializamos el array de errores si no existe
+// Array d'errors
 if (!isset($_SESSION['errors'])) {
     $_SESSION['errors'] = [];
 }
@@ -15,31 +15,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $db->prepare($query);
 
     if (!$stmt) {
-        die("Error en la preparación de la consulta: " . $db->error);
+        die("Error en la preparació: " . $db->error);
     }
 
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // Verifiquem la contrasenya
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['nom'];
 
-            // No hacemos la redirección aquí, sino en el archivo de login
-            $_SESSION['errors'] = []; // Limpiamos los errores antes de redirigir
+
+            $_SESSION['errors'] = []; 
         } else {
-            // Credenciales incorrectas
             $_SESSION['errors']['login'] = "*Credencials incorrectes.";
         }
     } else {
-        // Usuario no encontrado
         $_SESSION['errors']['login'] = "*Credencials incorrectes.";
     }
 
-    // Redirigimos después de establecer los errores en la sesión
     header("Location: index.php");
     exit;
 
@@ -55,25 +53,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <?php if (!isset($_SESSION['user_id'])): ?>
+
+        <!-- Enviem el formulari a la mateixa pàgina -->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <label for="email">Email: </label>
             <input type="email" name="email" required>
             <label for="password">Contraseña: </label>
             <input type="password" name="password" required>
-            <input type="submit" value="Iniciar sesión">
+            <input type="submit" value="Iniciar sessió">
         </form>
     <?php else: ?>
-        <p>Ya estás logueado como <?php echo $_SESSION['user_name']; ?>. 
+        <p>Ja estás loguejat com a <?php echo $_SESSION['user_name']; ?>. 
         <a href="logout.php">Cerrar sesión</a></p>
     <?php endif; ?>
 
-    <!-- Mostramos el error si existe -->
+    <!-- Mostrem errors si n'hi ha -->
     <?php if (!empty($_SESSION['errors']['login'])): ?>
         <p style="color:red;"><?php echo $_SESSION['errors']['login']; ?></p>
     <?php endif; ?>
 
     <?php
-    // Limpiamos los errores después de mostrarlos
     unset($_SESSION['errors']);
     ?>
 </body>
