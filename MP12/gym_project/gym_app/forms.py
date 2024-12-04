@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import User, Routine, Schedule
 
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -19,6 +19,24 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = [ 'username', 'email', 'first_name', 'last_name']
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Afegim classes per  l'estil i plachefolders
+        for fields in self.fields:
+            self.fields[fields].widget.attrs.update({'class': 'form-control', 'placeholder': self.fields[fields].label})
+            
+class RoutineForm(forms.ModelForm):
+    class Meta:
+        model = Routine
+        fields = ['name', 'exercises', 'duration', 'recommendations']
+        
+        labels = {
+            'name': 'Nom',
+            'exercises': 'Exercicis',
+            'duration': 'Duració (minuts)',
+            'recommendations': 'Recomanacions'
+        }
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

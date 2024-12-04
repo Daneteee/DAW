@@ -24,6 +24,8 @@
                 <?php include 'register.php'; ?>
             </li>
         <?php else: ?>
+            <li><a href="create_category.php">Crear categoría</a></li>
+            <li><a href="create_entry.php">Crear entrada</a></li>
             <li><a href="logout.php">Cerrar sesión</a></li>
         <?php endif; ?>
     </ul>

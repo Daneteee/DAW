@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GridBox</title>
+    <style>
+        body {
+            background-color: #EEEEEE;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #main div {
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #id_cap { 
+            grid-area: cap;
+            font-size: 48px;
+            background-color: #B380FF;
+            border: 1px solid black;
+            color: white;
+        }
+
+        #id_nav { 
+            grid-area: nav;
+            background-color: #33B5E5;
+            border: 1px solid #B380FF;
+        }
+
+        #id_art { 
+            grid-area: art;
+            background-color: #FFFFE0;
+            border: 1px solid #CCCCCC;
+        }
+
+        #id_inf {
+            grid-area: inf;
+            background-color: #33B5E5;
+            border: 1px solid #B380FF;
+        }
+
+        #id_peu { 
+            grid-area: peu;
+            background-color: #B380FF;
+            border: 1px solid black;
+            color: white;
+            padding: 1em;
+        }
+
+        #main {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 1fr 10fr 1.5fr; 
+            grid-template-rows: 2fr 10fr 1fr; 
+            grid-template-areas: 
+                "cap cap cap"
+                "nav art inf"
+                "peu peu peu";
+            height: 98vh;
+        }
+
+        /* Media query para dispositivos más pequeños */
+        @media (max-width: 740px) {
+            #main {
+                display: grid;
+                height: 98vh;
+                grid-gap: 5px;
+                grid-template-columns: 1fr;
+                grid-template-rows: 2fr 1fr 6fr 1fr 1.5fr;
+                grid-template-areas: 
+                    "cap"
+                    "nav"
+                    "art"
+                    "inf"
+                    "peu";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="id_cap">Capçalera</div>
+        <div id="id_nav">Navegació</div>
+        <div id="id_art">Articles</div>
+        <div id="id_inf">Info Articles</div>
+        <div id="id_peu">Peu de pàgina</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<html><head><base href="/" /><!DOCTYPE html>
+    <html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Llistat d'usuaris</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                color: #fff;
+                padding: 2rem;
+                line-height: 1.6;
+            }
+    
+            h1, h2 {
+                color: #8a2be2;
+                text-align: center;
+                margin-bottom: 2rem;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            }
+    
+            th {
+                background: #4a148c;
+                color: #fff;
+                padding: 15px;
+                text-align: left;
+                border: none;
+            }
+    
+            td {
+                padding: 12px 15px;
+                border: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                color: #e0e0e0;
+            }
+    
+            tr:hover {
+                background: rgba(138, 43, 226, 0.1);
+            }
+    
+            .loading {
+                font-size: 20px;
+                color: #9c27b0;
+                text-align: center;
+                margin: 2rem 0;
+            }
+    
+            #second-user {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 2rem;
+                border-radius: 15px;
+                margin-top: 2rem;
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            }
+    
+            #second-user p {
+                margin: 0.5rem 0;
+            }
+    
+            #second-user strong {
+                color: #9c27b0;
+                margin-right: 10px;
+            }
+    
+            img {
+                border-radius: 50%;
+                border: 2px solid #8a2be2;
+                transition: transform 0.3s ease;
+            }
+    
+            img:hover {
+                transform: scale(1.1);
+            }
+    
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+    
+            table, #second-user {
+                animation: fadeIn 0.5s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Llistat d'usuaris</h1>
+    
+        <!-- Mostrem un missatge mentre carrega la pàgina -->
+        <div id="loading" class="loading">Carregant...</div>
+    
+        <!-- Mostrem la taula d'usuaris -->
+        <table id="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Avatar</th>
+                    <th>Nom</th>
+                    <th>Cognom</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    
+        <!-- Mostrem les dades del segon usuari -->
+        <h2>Dades del segon usuari</h2>
+        <div id="second-user"></div>
+    
+        <script>
+
+            // Omplim la primera taula amb les dades dels usuaris
+            fetch('https://reqres.in/api/users')
+                .then(response => response.json())
+                .then(data => {
+                    const users = data.data;
+                    const taula = document.querySelector('#user-table tbody');
+                    document.getElementById('loading').style.display = 'none';
+                    users.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${user.id}</td>
+                            <td><img src="${user.avatar}" alt="Avatar" width="50"></td>
+                            <td>${user.first_name}</td>
+                            <td>${user.last_name}</td>
+                            <td>${user.email}</td>
+                        `;
+                        taula.appendChild(row);
+                    });
+                });
+    
+            // Fiquem les dades del segon usuari
+            fetch('https://reqres.in/api/users/2')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.data;
+                    const secondUserDiv = document.getElementById('second-user');
+                    secondUserDiv.innerHTML = `
+                        <p><strong>ID:</strong> ${user.id}</p>
+                        <p><strong>Nom:</strong> ${user.first_name}</p>
+                        <p><strong>Cognom:</strong> ${user.last_name}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Avatar:</strong> <img src="${user.avatar}" alt="Avatar" width="50"></p>
+                    `;
+                });
+        </script>
+    </body>
+    </html></html>

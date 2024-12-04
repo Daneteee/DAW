@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informació de Països</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Informació de Països</h1>
+    <button id="getLocationButton">Mostrar Països</button>
+    <table id="countryTable">
+        <thead>
+            <tr>
+                <th>Bandera</th>
+                <th>Dades</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="app.js"></script>
+</body>
+</html>
+
+<!-- No, no apareixeran en el mateix ordre ja que les peticions a les APIs es fan de manera asíncrona.
+La resposta de la geocodificació pot arribar més ràpidament que la resposta de l'API de països o al revés. -->

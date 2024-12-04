@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connection.php'; 
+include 'config/db.php'; 
 
 // Netegem les dades
 function cleanData($data) {

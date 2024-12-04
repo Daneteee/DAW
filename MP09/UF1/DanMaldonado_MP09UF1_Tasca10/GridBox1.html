@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GridBox</title>
+        <style>
+
+            body{
+                background-color: #EEEEEE;
+                font-family: Arial, Helvetica, sans-serif;
+                
+            }
+            
+            #main div {
+                padding: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            #id_cap { 
+                display: flex;
+                align-items: center;
+                grid-row: 1 / 1;
+                grid-column: 1 / span 3;
+                font-size: 48px;
+                background-color: #B380FF;
+                border: 1px solid black;
+                color: white;
+            }
+
+            #id_nav { 
+                grid-row: 2 / 2;
+                grid-column: 1 / 2;
+                background-color: #33B5E5;
+                border: 1px solid #B380FF;
+
+            }
+
+            #id_art { 
+                grid-row: 2 / 2;
+                grid-column: 2 / 2;
+                background-color: #FFFFE0;
+                border: 1px solid #CCCCCC;
+            }
+
+            #id_inf {
+                grid-row: 2 / 3;   
+                grid-column: 3 / 4;
+                background-color: #33B5E5;
+                border: 1px solid #B380FF;
+            }
+
+            #id_peu { 
+                grid-row: 3 / 6;
+                grid-column: 1 / 4;
+                background-color: #B380FF;
+                border: 1px solid black;
+                color: white;
+                padding: 1em !important;
+            }
+            
+
+            #main {
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: 1fr 10fr 1.5fr; 
+                grid-template-rows: 2fr 10fr 1fr; 
+                height: 98vh;
+            }                  
+
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="id_cap">Capçalera</div>
+            <div id="id_nav">Navegació</div>
+            <div id="id_art">Articles</div>
+            <div id="id_inf">Info Articles</div>
+            <div id="id_peu">Peu de pàgina</div>
+        </div>
+    </body>
+</html>

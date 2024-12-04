@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GridBox</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .caixa {
+                background-color: #1F90FF;
+                padding: 1em;
+                height: 5em;
+                color: white;
+            }
+
+            #main {
+                display: grid;
+                grid-gap: 5px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div class="caixa"><span>1</span></div>
+            <div class="caixa"><span>2</span></div>
+            <div class="caixa"><span>3</span></div>
+            <div class="caixa"><span>4</span></div>
+            <div class="caixa"><span>5</span></div>
+            <div class="caixa"><span>6</span></div>
+            <div class="caixa"><span>7</span></div>
+            <div class="caixa"><span>8</span></div>
+            <div class="caixa"><span>9</span></div>
+            <div class="caixa"><span>10</span></div>
+            <div class="caixa"><span>11</span></div>
+            <div class="caixa"><span>12</span></div>
+        </div>
+    </body>
+</html>

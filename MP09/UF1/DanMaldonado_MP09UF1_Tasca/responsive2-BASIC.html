@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<!--
+    Fins a 600 px: no s'aplica disseny a la pàgina web.
+    A partir de 600 px i fins a 1200 px: un disseny a dues columnes.
+    A partir de 1200 px: un disseny a tres columnes.
+
+Mireu bé la captura de pantalla. Algunes pistes:
+
+    * Fins a 600 px: les dades del llibre NO es mostren com una llista, es mostren tots junts en una sola línia separada per ";".
+    * A partir de 600 px i fins a 1200 px: els apartats del contingut del llibre es mostres en tres columnes.
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML & CSS: Curs pràctic avançat</title>
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+
+        .contingut_llibre p:nth-child(n+2) {
+            display: block;
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 1199px) {
+            .dades_llibre {
+                width: 40%; 
+                float: left;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .altres_dades {
+                float: left;
+                width: 60%; 
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .contingut_llibre p:nth-child(n+2) {
+                column-count: 3;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .altres_dades::after {
+                content: "";
+                display: table;
+            }
+
+            .dades_llibre{
+                margin-left: 10vw;
+                float: left;
+            }
+
+            .descripcio_llibre, .contingut_llibre {
+                float: left;
+                width: 30%;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML & CSS: Curs pràctic avançat</h1>
+
+    <div class="dades_llibre">
+        <h2>Dades del llibre</h2>
+
+        <ul>
+            <li>Títol: HTML & CSS: Curs pràctic avançat</li>
+            <li>Autor: Sergio Luján Mora</li>
+            <li>Editorial: Publicacions Altaria</li>
+            <li>Any de publicació: 2015</li>
+            <li>ISBN: 978-84-944049-4-8</li>
+        </ul>
+    </div>
+
+    <div class="altres_dades">
+        <div class="descripcio_llibre">
+            <h2>Descripció del llibre</h2>
+
+            <p>
+                Encara que els inicis d'Internet es remunten als anys seixanta, no ha estat fins als anys noranta quan,
+                gràcies a la Web, s'ha estès el seu ús arreu del món. En pocs anys, la Web ha evolucionat enormement:
+                s'ha passat de pàgines senzilles, amb poques imatges i continguts estàtics que eren visitades per uns
+                pocs usuaris a pàgines complexes, amb continguts dinàmics que provenen de bases de dades i que són
+                visitades per milers d'usuaris al mateix temps.
+            </p>
+
+            <p>
+                Totes les pàgines estan internament construïdes amb la mateixa tecnologia, amb el Llenguatge de marques
+                d'hipertext (Hypertext Markup Language, HTML) i amb les Fulles d'estil en cascada (Cascading Style
+                Sheets, CSS).
+            </p>
+
+            <p>
+                Aquest llibre és adequat per a qualsevol persona que tingui interès a aprendre a desenvolupar les seves
+                pròpies pàgines web. No són necessaris coneixements previs per aprendre amb aquest llibre, l'únic que és
+                necessari és saber utilitzar un ordinador i saber navegar per la Web.
+            </p>
+        </div>
+
+        <div class="contingut_llibre">
+            <h2>Contingut del llibre</h2>
+
+            <p>
+                El contingut d'aquest llibre s'estructura en tres apartats ben diferenciades:
+            </p>
+
+            <p>
+                En la primera part del llibre es treballen conceptes generals que són necessaris per poder desenvolupar
+                pàgines web; s'expliquen conceptes d'estructura física i estructura lògica (o estructura de navegació)
+                d'un lloc web. Es detalla com influeix l'estructura física en les URL o adreces que s'empleen a l'hora
+                de crear els enllaços d'un lloc web. Passant pel concepte d'"estàndard web", un terme general que
+                s'emplea per referir-se als estàndards que defineixen el seu funcionament com HTML i CSS, emprats per al
+                desenvolupament de les pàgines web al costat del client.
+            </p>
+
+            <p>
+                En la segona part es treballa HTML. Partint de l'estructura bàsica d'una pàgina web, s'expliquen les
+                etiquetes de HTML que s'utilitzen per definir el text, els enllaços, les llistes, les taules, els
+                formularis i els elements multimèdia.
+            </p>
+
+            <p>
+                En la tercera i última part s'explica CSS, el llenguatge que s'utilitza per definir el format i la
+                presentació d'una pàgina web. S'explica com utilitzar el color, com definir la presentació del text, de
+                les taules i dels formularis; com realitzar transformacions i transicions amb la finalitat de dissenyar
+                una pàgina web.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
