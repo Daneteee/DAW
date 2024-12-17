@@ -7,12 +7,13 @@ body {
     padding: 0;
     background-color: #E6E6FA; 
     min-height: 100vh;
-    display: flex;
+    display: flex; 
     flex-direction: column;
 }
 
 .main-content {
     margin-top: 40px;
+    margin-bottom: 50px;
     padding: 20px;
 }
 /*=============================*/
@@ -259,6 +260,7 @@ form input[type="submit"]:active {
     padding: 0px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
+    z-index: 1;
     top: 60px; 
 }
 
@@ -300,8 +302,11 @@ form input[type="submit"]:active {
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    max-width: 500px;
-    margin: 80px auto;
+    min-width: 400px;
+    position: relative;
+    top: 10vh;
+    height: 50%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -434,6 +439,7 @@ form input[type="submit"]:active {
 /*=============================*/
 .blog-entry {
     background-color: #ffffff;
+    position: relative;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     margin-bottom: 30px;
@@ -441,6 +447,8 @@ form input[type="submit"]:active {
     transition: transform 0.3s ease;
     width: 50vw;
 }
+
+
 
 .blog-entry:hover {
     transform: translateY(-5px);
@@ -454,6 +462,9 @@ form input[type="submit"]:active {
 }
 
 .blog-entry-title {
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: #333;
     margin-bottom: 10px;
     font-weight: 600;
@@ -469,9 +480,17 @@ form input[type="submit"]:active {
     background-color: #ffffff;
 }
 
+.blog-entry-content {
+    padding-right: 60px; /* Deja espacio para los botones */
+}
+
 .entry-actions {
     display: flex;
-    gap: 10px;
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    flex-direction: column; /* Botones en vertical */
+    align-items: flex-end;
 }
 /*=============================*/
 
@@ -480,6 +499,9 @@ form input[type="submit"]:active {
 /*            Butons           */
 /*=============================*/
 .btn {
+    display: flex; 
+    justify-content: center;
+    width: 50px;
     margin-top: 10px;
     text-decoration: none;
     border: none;
@@ -507,3 +529,47 @@ form input[type="submit"]:active {
     background-color: #a71d2a;
 }
 /*=============================*/
+
+.btn-view-all {
+    width: auto;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #7b1fa2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-view-all:hover {
+    background: #6a1b9a;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-pagination {
+    padding: 8px 12px;
+    background: #f1f1f1;
+    color: #555;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-pagination:hover {
+    background: #7b1fa2;
+    color: #fff;
+}
+
+.btn-pagination.active {
+    background: #7b1fa2;
+    color: #fff;
+}

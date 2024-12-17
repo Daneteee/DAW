@@ -99,7 +99,11 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="trainerDropdown">
                                 {% if user.role == 'trainer' %}
-                                    <li><a class="dropdown-item" href="{% url 'create_routine' %}">Crear Rutina</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'gym_trainer:create_routine' %}">Crear Rutina</a></li>
+
+                                {% elif user.role == 'user' %}
+                                    <li><a class="dropdown-item" href="{% url 'gym_workouts:select_subscription' %}">Seleccionar Cuota</a></li>
+                                
                                 {% endif %}
                                 <li><a class="dropdown-item" href="{% url 'profile_edit' %}">Editar Perfil</a></li>
                             </ul>

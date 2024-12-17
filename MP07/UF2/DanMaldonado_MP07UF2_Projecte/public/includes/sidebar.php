@@ -10,7 +10,7 @@
                     <?php unset($_SESSION['errors']['login']);?>
                 <?php endif; ?>
                 
-                <form action="login.php" method="POST">
+                <form action="/user/login.php" method="POST">
                     <label for="email">Email:</label>
                     <input type="email" name="email" required>
                     <label for="password">Contraseña:</label>
@@ -21,12 +21,13 @@
             <li>
                 <br><br>
                 <h3>Registrar Usuario</h3>
-                <?php include 'register.php'; ?>
+                <?php include __DIR__ . '/../user/register.php'; ?>
             </li>
         <?php else: ?>
-            <li><a href="create_category.php">Crear categoría</a></li>
-            <li><a href="create_entry.php">Crear entrada</a></li>
-            <li><a href="logout.php">Cerrar sesión</a></li>
+            <li><a href="/categories/create_category.php">Crear categoría</a></li>
+            <li><a href="/entries/create_entry.php">Crear entrada</a></li>
+            <li><a href="/profile/edit_profile.php">Editar perfil</a></li>
+            <li><a href="/user/logout.php">Cerrar sesión</a></li>
         <?php endif; ?>
     </ul>
 </aside>

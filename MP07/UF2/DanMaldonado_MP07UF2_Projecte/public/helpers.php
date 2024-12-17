@@ -30,11 +30,30 @@ function mostraCategories($arrayCategories) {
         foreach ($arrayCategories as $category) {
 
             // Fiquem un link amb la ID de la categoría per trobarla més endavant
-            echo '<li><a href="category.php?id=' . $category['id'] . '">' . htmlspecialchars($category['nombre']) . '</a></li>';
+            echo '<li><a href="/categories/category.php?id=' . $category['id'] . '">' . htmlspecialchars($category['nombre']) . '</a></li>';
         }
         echo '</ul>';
     } else {
         echo '<p>No hi han categories disponibles.</p>';
     }
+}
+
+function cleanData($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}
+
+// Funció per validar la contrasenya
+function validar_contrasenya($password) {
+    return !empty($password) &&
+        preg_match('/[A-Z]/', $password) &&  
+        preg_match('/[a-z]/', $password) &&  
+        preg_match('/[0-9]/', $password) &&  
+        preg_match('/[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]+/', $password) && 
+        strlen($password) >= 8;
+}
+
+// Funció per validar l'email
+function validar_email($email) {
+    return !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 ?>
