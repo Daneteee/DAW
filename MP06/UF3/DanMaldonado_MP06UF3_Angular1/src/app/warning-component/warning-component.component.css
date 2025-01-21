@@ -1,0 +1,10 @@
+.warning-box {
+    border: 2px solid red;
+    background-color: pink;
+    color: darkred;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+  

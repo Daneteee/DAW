@@ -530,6 +530,10 @@ form input[type="submit"]:active {
 }
 /*=============================*/
 
+
+/*=============================*/
+/*         All Entries         */
+/*=============================*/
 .btn-view-all {
     width: auto;
     display: inline-block;
@@ -572,4 +576,73 @@ form input[type="submit"]:active {
 .btn-pagination.active {
     background: #7b1fa2;
     color: #fff;
+}
+/*=============================*/
+
+
+/*=============================*/
+/*            Cerca            */
+/*=============================*/
+.search-form {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+}
+
+.search-button {
+    padding: 15px;
+    border: none;
+    background-color: #650090;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/*=============================*/
+
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #6a1b9a;
 }

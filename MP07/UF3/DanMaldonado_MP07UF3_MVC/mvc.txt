@@ -1,0 +1,23 @@
+Model Vista Controlador
+-----------------------
+
+Separem la lògica de de negoci de l'interficie amb l'usuari
+Més fàcil de mantenir i escalar
+
+No barregem php amb sql ni html
+
+No fer codi spaguetti
+
+3 nivell d'abstracció :
+    Model - Lògica de la Base de dades
+    Vista - Mostra les dades a l'usuari
+    Controlador - Interactuar amb els dos
+
+https://ca.wikipedia.org/wiki/Model-Vista-Controlador
+https://desarrolloweb.com/articulos/que-es-mvc.html
+
+Fem 3 casrpetes
+
+
+
+

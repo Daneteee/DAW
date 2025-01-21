@@ -1,0 +1,15 @@
+<div>
+  <input 
+    type="text" 
+    [(ngModel)]="username" 
+    placeholder="El teu nom" 
+  />
+  
+  <p>Et dius: {{ username }}</p>
+
+  <button 
+    [disabled]="username === ''" 
+    (click)="clearUsername()">
+    Netejar
+  </button>
+</div>

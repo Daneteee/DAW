@@ -27,6 +27,8 @@
             <li><a href="/categories/create_category.php">Crear categoría</a></li>
             <li><a href="/entries/create_entry.php">Crear entrada</a></li>
             <li><a href="/profile/edit_profile.php">Editar perfil</a></li>
+            <li><a href="/other/contact.php">Contacte</a></li>
+            <li><a href="/other/about.php">Sobre nosaltres</a></li>
             <li><a href="/user/logout.php">Cerrar sesión</a></li>
         <?php endif; ?>
     </ul>
