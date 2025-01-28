@@ -1,37 +1,51 @@
 <?php
 
-require_once'autoloader.php';
+require_once 'autoloader.php';
 
-// Demostració del funcionament
-$autor = new Autor("J.K.", "Rowling");
-$llibre1 = new Llibre("Harry Potter i la pedra filosofal", $autor, "1234567890");
-$llibre2 = new Llibre("Harry Potter i la cambra secreta", $autor, "0987654321");
+// Crear autors
+$autor1 = new Autor("James", "Dashner");
+$autor2 = new Autor("Tana", "Franch");
 
-$autor->afegirLlibre($llibre1);
-$autor->afegirLlibre($llibre2);
+// Crear llibres
+$llibre1 = new Llibre("El destello", $autor1, "123456789");
+$llibre2 = new Llibre("La ultima noche de Rose Daly", $autor2, "987654321");
 
+// Afegir llibres als autors
+$autor1->afegirLlibre($llibre1);
+$autor2->afegirLlibre($llibre2);
+
+// Crear biblioteca
 $biblioteca = new Biblioteca();
 $biblioteca->afegirLlibre($llibre1);
-biblioteca->afegirLlibre($llibre2);
+$biblioteca->afegirLlibre($llibre2);
 
-$usuari = new Usuari("Joan", "Pérez");
+// Crear usuari
+$usuari = new Usuari("Joan", "Garcia");
 
-echo "Catàleg de la biblioteca:\n";
-biblioteca->mostrarCataleg();
+// Interacció amb la biblioteca
+echo "<html><body>";
+echo "<h1>Biblioteca Virtual</h1>";
 
-echo "\nUsuari pren un llibre:\n";
+echo "<h2>Catàleg inicial</h2>";
+echo "<pre>";
+$biblioteca->mostrarCataleg();
+echo "</pre>";
+
+echo "<h2>Préstec de llibres</h2>";
+echo "<pre>";
 $usuari->prestarLlibre($llibre1);
-
-echo "\nCatàleg actualitzat:\n";
-biblioteca->mostrarCataleg();
-
-echo "\nLlibres prestats per l'usuari:\n";
 $usuari->mostrarLlibresPrestats();
+echo "</pre>";
 
+echo "<h2>Retorn de llibres</h2>";
+echo "<pre>";
 $usuari->retornarLlibre($llibre1);
-
-echo "\nLlibres prestats després de retornar:\n";
 $usuari->mostrarLlibresPrestats();
+echo "</pre>";
 
-echo "\nCatàleg final:\n";
-biblioteca->mostrarCataleg();
+echo "<h2>Catàleg final</h2>";
+echo "<pre>";
+$biblioteca->mostrarCataleg();
+echo "</pre>";
+
+echo "</body></html>";

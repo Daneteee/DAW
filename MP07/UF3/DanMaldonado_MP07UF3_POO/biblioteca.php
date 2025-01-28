@@ -1,31 +1,31 @@
 <?php
 
-// Classe Biblioteca
 class Biblioteca {
-
-    public $cataleg;
+    private array $cataleg;
 
     public function __construct() {
-        $this->cataleg = array();
+        $this->cataleg = [];
     }
 
-    // Afegim llibre
-    public function afegirLlibre($llibre) {
+    public function afegirLlibre(Llibre $llibre) {
         $this->cataleg[] = $llibre;
     }
 
-    // Eliminem llibre
-    public function eliminarLlibre($llibre) {
-        $index = array_search($llibre, $this->cataleg);
-        if ($index !== false) {
-            unset($this->cataleg[$index]);
+    public function eliminarLlibre(Llibre $llibre) {
+        foreach ($this->cataleg as $index => $llibreCataleg) {
+            if ($llibreCataleg === $llibre) {
+                unset($this->cataleg[$index]);
+                echo "Llibre eliminat del catàleg: " . $llibre->__get("titol") . "\n";
+                return;
+            }
         }
+        echo "El llibre no es troba al catàleg.\n";
     }
 
-    // Mostrem el catàleg
     public function mostrarCataleg() {
+        echo "Catàleg de la biblioteca:\n";
         foreach ($this->cataleg as $llibre) {
-            echo $llibre->mostrarInformacio() . "<br>";
+            $llibre->info();
         }
     }
 }

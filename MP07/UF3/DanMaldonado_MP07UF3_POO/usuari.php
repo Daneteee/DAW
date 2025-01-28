@@ -1,48 +1,41 @@
 <?php
 
-require_once 'modelBase.php';
+class Usuari {
+    private string $nom;
+    private string $cognom;
+    private array $llibresPrestats = [];
 
-// Classe usuari
-class Usuari extends modelBase{
-    private $nom;
-    private $cognom;
-    private $llibres_prestats;
-
-    public function __construct($nom, $cognom) {
+    public function __construct(string $nom, string $cognom) {
         $this->nom = $nom;
         $this->cognom = $cognom;
-        $this->llibres_prestats = array();
     }
 
-    // Fem el préstec d'un llibre
-    public function prestarLlibre($llibre) {
-        if ($llibre->estaDisponible()) {
-            $this->llibres_prestats[] = $llibre;
+    public function prestarLlibre(Llibre $llibre) {
+        if ($llibre->__get("disponible")) {
             $llibre->prestar();
-            echo "Llibre prestat: {$llibre->info()}\n";
+            $this->llibresPrestats[] = $llibre;
+            echo "Llibre prestat: " . $llibre->__get("titol") . "\n";
         } else {
-            echo "El llibre no està disponible per prestar.";
+            echo "El llibre '{$llibre->__get("titol")}' no està disponible.\n";
         }
     }
 
-    // Retornem un llibre
-    public function retornarLlibre($llibre) {
-        $index = array_search($llibre, $this->llibres_prestats);
-        if ($index !== false) {
-            unset($this->llibres_prestats[$index]);
-            $llibre->retornar();
-            echo "Llibre retornat: {$llibre->info()}\n";
-        } else {
-            echo "No tens aquest llibre prestat.";
+    public function retornarLlibre(Llibre $llibre) {
+        foreach ($this->llibresPrestats as $index => $prestat) {
+            if ($prestat === $llibre) {
+                $llibre->retornar();
+                unset($this->llibresPrestats[$index]);
+                echo "Llibre retornat: " . $llibre->__get("titol") . "\n";
+                return;
+            }
         }
+        echo "Aquest llibre no està a la teva llista de préstecs.\n";
     }
 
-    // Llibres prestats
     public function mostrarLlibresPrestats() {
         echo "Llibres prestats per {$this->nom} {$this->cognom}:\n";
-        foreach ($this->llibres_prestats as $llibre) {
-            echo "- {$llibre->info()}\n";
+        foreach ($this->llibresPrestats as $llibre) {
+            echo "- " . $llibre->__get("titol") . "\n";
         }
     }
-
-}
+} 

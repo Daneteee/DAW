@@ -93,7 +93,7 @@ def enroll_user(request):
 
             # Verifiquem que l'usuari tingui subscripció
             if not request.user.subscription:
-                messages.error(request, "Has de tenir una subscripció per inscriure't a rutines.")
+                messages.warning(request, "Has de tenir una subscripció per inscriure't a rutines.")
                 return redirect('gym_workouts:workouts')
 
             # Obtenim el màxim de rutines segons la subscripció de l'usuari
@@ -108,10 +108,10 @@ def enroll_user(request):
                 schedule.enrollments.add(request.user)
                 messages.success(request, "T'has inscrit a la rutina correctament!")
             else:
-                messages.error(request, 'Ja no et pots inscriure!.')
+                messages.warning(request, 'Ja no et pots inscriure!.')
         else:
             print(form.errors)  
-            messages.error(request, 'Hi ha hagut un error inesperat.')
+            messages.warning(request, 'Hi ha hagut un error inesperat.')
 
     return redirect('gym_workouts:workouts')
 

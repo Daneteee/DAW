@@ -1,0 +1,115 @@
+.navbar-custom {
+    background-color: rgb(40, 187, 156);
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+    background-color: rgb(37, 150, 125);
+    color: white;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: linear-gradient(to right, rgb(129, 219, 202), rgb(65, 194, 168));
+}
+
+.footer-custom {
+    background-color: rgb(40, 187, 156);
+    color: white;
+}
+
+#mesInformacio h2 {
+    color: rgb(40, 187, 156);
+}
+
+#mesInformacio h3 {
+    color: rgb(40, 187, 156);
+}
+
+#mesInformacio a {
+    background-color: rgb(40, 187, 156);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+#mesInformacio a:hover {
+    text-decoration: underline;
+}
+
+#carrusel {
+    position: relative;
+    height: 300px;
+    background-image: url('assets/img1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    width: 100%; 
+}
+
+.carousel-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-indicators button {
+    width: 40px;
+    height: 4px;
+    margin: 0 5px;
+    background-color: gray; 
+    border: none;
+    cursor: pointer;
+}
+
+.carousel-indicators .active {
+    background-color: white; 
+}
+
+#mesInformacio {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+#mesInformacio .row {
+    margin: 0; 
+}
+
+#mesInformacio .col-md-4 {
+    padding: 0 15px;
+}
+
+.separador {
+    border: none; 
+    height: 2px; 
+    background-color: #ccc; 
+    margin: 10px 0; 
+}
+
+.navbar-toggler {
+    margin-left: auto;
+}

@@ -1,31 +1,27 @@
 <?php
 
 class Autor {
-    private $nom;
-    private $cognom;
-    private $llibres;
+    private string $nom;
+    private string $cognom;
+    private array $llibres = [];
 
-    public function __construct($nom, $cognom) {
+    public function __construct(string $nom, string $cognom) {
         $this->nom = $nom;
         $this->cognom = $cognom;
-        $this->llibres = array();
     }
 
-    // Afegir un llibre a l'autor
-    public function afegirLlibre($llibre) {
+    public function afegirLlibre(Llibre $llibre) {
         $this->llibres[] = $llibre;
     }
 
-    // Mostrem els llibres que ha publicat l'autor
     public function mostrarLlibres() {
-        echo "Llibres de " . $this->nom . " " . $this->cognom . ":<br>";
+        echo "Llibres escrits per {$this->nomComplet()}:\n";
         foreach ($this->llibres as $llibre) {
-            echo "- " . $llibre->getTitol() . "<br>";
+            echo "- " . $llibre->__get("titol") . "\n";
         }
     }
 
-    // Nom complet de l'autor
-    public function nomComplet() {
+    public function nomComplet(): string {
         return "{$this->nom} {$this->cognom}";
     }
 }

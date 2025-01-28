@@ -1,35 +1,38 @@
 <?php
-// Classe Llibre
-class Llibre {
-    private $titol;
-    private $autor;
-    private $isbn;
-    private $disponible;
 
-    public function __construct($titol, Autor $autor, $isbn) {
+class Llibre {
+    private string $titol;
+    private Autor $autor;
+    private string $isbn;
+    private bool $disponible;
+
+    public function __construct(string $titol, Autor $autor, string $isbn) {
         $this->titol = $titol;
         $this->autor = $autor;
         $this->isbn = $isbn;
         $this->disponible = true;
     }
 
-    // Prèstec d'un llibre
     public function prestar() {
-        $this->disponible = false;
+        if ($this->disponible) {
+            $this->disponible = false;
+        } else {
+            echo "El llibre '{$this->titol}' no està disponible.\n";
+        }
     }
 
-    // Retornem un llibre
     public function retornar() {
         $this->disponible = true;
     }
 
-    // Informació sobre el llibre
     public function info() {
-        return "Títol: {$this->titol}, Autor: {$this->autor->nomComplet()}, Disponible: " . ($this->disponible ? 'Sí' : 'No');
+        $disponibilitat = $this->disponible ? "Disponible" : "No disponible";
+        echo "Títol: {$this->titol}, Autor: {$this->autor->nomComplet()}, Disponibilitat: {$disponibilitat}\n";
     }
 
-    // Mostrem si el llibre está disponible per préstec
-    public function estaDisponible() {
-        return $this->disponible;
+    public function __get($propietat) {
+    if (property_exists($this,$propietat)) {
+        return $this->$propietat;
+        };
     }
 }

@@ -5,10 +5,10 @@ require_once 'modelBase.php';
 class Nota extends modelBase {
 
     private $nom;
-    private $titol;
+    private $contingut;
 
-    public function __construct($host, $dbname, $user, $password) {
-        parent::__construct($host, $dbname, $user, $password);
+    public function __construct() {
+        parent::__construct();
     }
 
     /**
@@ -16,9 +16,25 @@ class Nota extends modelBase {
      * @return array
      */
     public function obtenirTotes() {
-        return $this->aconseguirTots('notes'); // Especifica la taula 'notes'
+        return $this->aconseguirTots('notes'); 
     }
 
+    public function desarNota() {
+        // Escapem els valors per evitar SQL Injection
+        $nom = $this->conn->real_escape_string($this->nom);
+        $contingut = $this->conn->real_escape_string($this->contingut);
+    
+        // Consulta SQL per inserir una nova nota
+        $sql = "INSERT INTO notes (nom, contingut) VALUES ('$nom', '$contingut')";
+    
+        // Executem
+        $desat = $this->conn->query($sql);
+    
+        return $desat;
+    }
+
+
+    // Setters i getters
     public function getNom() {
         return $this->nom;
     }
@@ -27,12 +43,12 @@ class Nota extends modelBase {
         $this->nom = $nom;
     }
 
-    public function getTitol() {
-        return $this->titol;
+    public function getcontingut() {
+        return $this->contingut;
     }
 
-    public function setTitol($titol) {
-        $this->titol = $titol;
+    public function setcontingut($contingut) {
+        $this->contingut = $contingut;
     }
 }
 ?>
