@@ -1,5 +1,7 @@
 .navbar-custom {
     background-color: rgb(40, 187, 156);
+    min-height: 60px; 
+    z-index: 10;
 }
 
 .navbar-custom .nav-link:hover,
@@ -16,6 +18,16 @@
 .footer-custom {
     background-color: rgb(40, 187, 156);
     color: white;
+}
+
+#carrusel {
+    position: relative;
+    z-index: 5;
+    height: 300px;
+    background-image: url('img1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    width: 100%;
 }
 
 #mesInformacio h2 {
@@ -38,14 +50,6 @@
     text-decoration: underline;
 }
 
-#carrusel {
-    position: relative;
-    height: 300px;
-    background-image: url('assets/img1.jpg'); 
-    background-size: cover;
-    background-position: center;
-    width: 100%; 
-}
 
 .carousel-inner {
     position: absolute;
@@ -64,7 +68,7 @@
     display: block;
 }
 
-.carousel-indicators {
+Y.carousel-indicators {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -111,5 +115,15 @@
 }
 
 .navbar-toggler {
-    margin-left: auto;
+    margin-left: auto; 
+}
+
+.card {
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.carousel-indicators {
+    justify-content: center;
 }

@@ -1,0 +1,25 @@
+1.- Comentar el fitxer de routing de l’aplicació WebShopUI v11
+
+Primerament configurem la navegació de l'aplicació. Importem el mòdul NgModule i les eines de routing d'Angular, 
+i els components que s'utilitzaran per mostrar les diferents vistes.
+
+Després definim un array de rutes on especifiquem que quan l'usuari accedeix a l'URL /tienda es mostra el 
+component de la botiga, i quan accedeix a /administracion es mostra el component d'administració.
+
+La ruta d'administració inclou subrutes children que organitzen de manera més jeràrquica la navegació 
+dins d'aquesta secció. Llavors si l'usuari accedeix a /administracion sense cap subruta, es redirigeix 
+automàticament a /administracion/libros, on es mostra el component de llibres. També es configura una 
+redirecció per a la ruta base, de manera que si no s'especifica cap camí es redirigeix a /tienda.
+
+Finalment, amb el mètode RouterModule.forRoot(routes) s'inicialitza la configuració de rutes per a l'aplicació i 
+s'exporta el mòdul de routing perquè estigui disponible en tot el projecte. 
+
+
+
+2.- Què són les rutes children?
+
+Les rutes children són rutes definides dins d'una ruta principal, creant una estructura jeràrquica en la navegació.
+Permeten que el component pare mostri un component fill dins del seu context. 
+
+Llavors quan naveguem a una subruta  el component fill es renderitza dins del component pare que gestiona 
+la ruta principal.

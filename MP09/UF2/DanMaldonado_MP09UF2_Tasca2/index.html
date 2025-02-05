@@ -4,134 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acadèmia esTUdia</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/styles.css" rel="stylesheet">
-    <style type="text/css">
-        /* Fons de la barra de navegació */
-        .navbar-custom {
-            background-color: rgb(40, 187, 156);
-        }
-
-        /* Quan passem el ratolí per sobre o arriba el focus, canviem color item a la barra */
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .nav-link:focus {
-            background-color: rgb(37, 150, 125);
-            color: white;
-        }
-
-        /* Gradient als controls del carrusel */
-        .carousel-control-prev,
-        .carousel-control-next {
-            background: linear-gradient(to right, rgb(129, 219, 202), rgb(65, 194, 168));
-        }
-
-        /* Color de la card del footer */
-        .footer-custom {
-            background-color: rgb(40, 187, 156);
-            color: white;
-        }
-
-        /* Text de la secció central */
-        #mesInformacio h2 {
-            color: rgb(40, 187, 156);
-        }
-
-        #mesInformacio h3 {
-            color: rgb(40, 187, 156);
-        }
-
-        #mesInformacio a {
-            background-color: rgb(40, 187, 156);
-            text-decoration: none;
-            border-radius: 10px;
-            padding: 10px;
-            color: white;
-        }
-
-        #mesInformacio a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilo para el carrusel con fondo estático */
-        #carrusel {
-            position: relative;
-            height: 300px; /* Reducir la altura del carrusel */
-            background-image: url('assets/img1.jpg'); 
-            background-size: cover;
-            background-position: center;
-            width: 100%; /* Asegurarse de que ocupe todo el ancho */
-        }
-
-        .carousel-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-        }
-
-        .carousel-item {
-            display: none;
-        }
-
-        .carousel-item.active {
-            display: block;
-        }
-
-        /* Estilo para los indicadores del carrusel */
-        .carousel-indicators {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        .carousel-indicators button {
-            width: 40px;
-            height: 4px;
-            margin: 0 5px;
-            background-color: gray; 
-            border: none;
-            cursor: pointer;
-        }
-
-        .carousel-indicators .active {
-            background-color: white; 
-        }
-
-        /* Estilo para la sección central */
-        #mesInformacio {
-            width: 95%;
-            margin: 0 auto;
-            padding: 10px 0; /* Reducir el padding para que ocupe menos espacio */
-        }
-
-        #mesInformacio .row {
-            margin: 0; 
-        }
-
-        #mesInformacio .col-md-4 {
-            padding: 0 15px;
-        }
-
-        .separador {
-            border: none; 
-            height: 2px; 
-            background-color: #ccc; 
-            margin: 10px 0; 
-        }
-
-        .navbar-toggler {
-            margin-left: auto; /* Mueve el botón a la derecha */
-        }
-    </style>
 </head>
 <body>
 
@@ -139,23 +13,19 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Inici</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Cursos</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Inici</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Cursos</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    
+
     <!-- CARRUSEL -->
     <div id="carrusel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -169,19 +39,14 @@
             <div class="carousel-item">
                 <h2 class="d-none d-md-block">Millora la teva fluidesa de llengües estrangeres</h2>
             </div>
-            
-            <div class="d-flex justify-content-center align-items-center position-relative mt-4">
-                <img src="assets/thumbsup.svg" 
-                     alt="Thumbs Up" 
-                     class="d-none d-md-block position-absolute translate-middle-y" 
-                     style="z-index: 1; width: 25px; height: 25px;">
-                     
-                <div id="mesInformacio" class="text-center mt-5">
-                    <a href="" class="d-none d-md-inline-block p-2">Més informació</a>
+
+            <!-- Spinner y Botón "Més informació" -->
+            <div class="d-flex flex-column justify-content-center align-items-center mt-4 d-none d-md-block">
+                <div class="mt-5 spinner-grow text-light" role="status"></div>
+                <div id="mesInformacio" class="text-center mt-3">
+                    <a href="#" class="btn btn-outline-success">Més informació</a>
                 </div>
             </div>
-            
-            
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carrusel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -192,49 +57,120 @@
             <span class="visually-hidden">Next</span>
         </button>
         <!-- Indicadores del carrusel -->
-        <div class="carousel-indicators">
+        <div class="carousel-indicators ">
             <button type="button" data-bs-target="#carrusel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carrusel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carrusel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
     </div>
+
     
-    <!-- SECCIÓ CENTRAL -->
-    <section id="mesInformacio" class="container-fluid my-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="text-secondary">Preparem el vostre futur</h2>
+    <!-- TOAST -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="toastInfo" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Informació</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Deixa les teves dades en el formulari. 
+                <a href="#" 
+                class="text-success fw-bold" 
+                data-bs-toggle="modal" 
+                data-bs-target="#formModal">Obrir formulari</a>
             </div>
         </div>
-        <!-- Separador 1 -->
-        <hr class="separador">
-        <div class="row mt-4">
-            <div class="col-md-4 mb-3">
-                <h3 class="text-secondary">Títols homologats</h3>
-                <p>Organitzem cursos per completar la vostra formació reglada. Per això us ajudem a preparar la prova d’accés a grau mig i superior, així com cursos de reforç per a batxillerat.</p>
-                <a href="">Més...</a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h3 class="text-secondary">Competències</h3>
-                <p>Oferim la certificació de nivell mitjà i avançat per tal d’acreditar la vostra competència TIC. Alhora, organitzem cursos específics de programació i disseny web.</p>
-                <a href="">Més...</a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h3 class="text-secondary">Idiomes</h3>
-                <p>Avui en dia és indispensable poder demostrar un nivell intermedi o avançat en llengües estrangeres. Segueix el nostre pla per aconseguir millorar el teu nivell.</p>
-                <a href="">Més...</a>
+    </div>
+
+    <!-- FORMULARI MODAL -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Deixa les teves dades</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correu electrònic</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="popover" title="Correu vàlid" data-bs-content="Introdueix un correu electrònic correcte.">ℹ️</button>
+                        </div>
+                        <div class="mb-3">
+                            <label for="missatge" class="form-label">Missatge</label>
+                            <textarea class="form-control" id="missatge" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <!-- Separador 2 -->
-        <hr class="separador">
+    </div>
+
+    <!-- CARDS (3 COLUMNES) -->
+    <section class="container my-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Títols Oficials">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">📜 Títols Oficials</h5>
+                        <p class="card-text">Facilitem l'obtenció de certificacions oficials per al teu futur.</p>
+                        <button id="btnMesInformacio" class="btn btn-outline-success">Més info</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Competències TIC">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">💻 Competències TIC</h5>
+                        <p class="card-text">Aprèn habilitats tecnològiques fonamentals per a la teva carrera.</p>
+                        <button class="btn btn-outline-success">Més info</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Idiomes">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">🌍 Idiomes</h5>
+                        <p class="card-text">Millora la teva fluïdesa en llengües estrangeres.</p>
+                        <button class="btn btn-outline-success">Més info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    
+
     <!-- FOOTER -->
     <footer class="footer-custom text-center py-3">
         <h5>Acadèmia esTUdia</h5>
     </footer>
-    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inicializar el toast una sola vez
+        const toastEl = document.getElementById('toastInfo');
+        const toast = new bootstrap.Toast(toastEl);
+
+        // Mostrar el toast al hacer clic en el botón del carrusel
+        document.querySelector('#mesInformacio a').addEventListener('click', () => {
+            toast.show();
+        });
+
+        // Inicializar popovers
+        const popoverList = [...document.querySelectorAll('[data-bs-toggle="popover"]')]
+            .map(popoverEl => new bootstrap.Popover(popoverEl));
+    </script>
+
 </body>
 </html>

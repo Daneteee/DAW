@@ -62,10 +62,10 @@
                         <div class="mb-3">
                             <label for="role" class="form-label">Rol</label>
                             <select class="form-select" id="role" name="role" required>
-                                <option value="trainer" {% if user.role == 'trainer' %}selected{% endif %}>Entrenador</option>
-                                <option value="user" {% if user.role == 'user' %}selected{% endif %}>Usuario</option>
-                                <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
-                                <option value="gerent" {% if user.role == 'gerent' %}selected{% endif %}>Gerent</option>
+                                <option value="trainer" {% if form.role.value == 'trainer' %}selected{% endif %}>Entrenador</option>
+                                <option value="user" {% if form.role.value == 'user' %}selected{% endif %}>Usuario</option>
+                                <option value="admin" {% if form.role.value == 'admin' %}selected{% endif %}>Admin</option>
+                                <option value="gerent" {% if form.role.value == 'gerent' %}selected{% endif %}>Gerent</option>
                             </select>
                         </div>
 

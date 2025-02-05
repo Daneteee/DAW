@@ -11,8 +11,10 @@ def user_list(request):
     if request.user.role != 'admin':
         return HttpResponseForbidden("No pots accedir a aquesta pàgina.")
     
-    users = User.objects.all()
+    users = User.objects.exclude(id=request.user.id)  # Excloem l'usuari actual
     return render(request, 'user_list.html', {'users': users})
+
+
 
 # Editem la informació de l'usuari
 @login_required

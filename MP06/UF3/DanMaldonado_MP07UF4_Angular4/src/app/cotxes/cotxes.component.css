@@ -1,0 +1,38 @@
+h2 {
+    color: #4CAF50;
+} 
+  
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+margin: 10px 0;
+padding: 10px;
+background-color: #f9f9f9;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+.combustible-verd {
+color: green;
+font-weight: bold;
+}
+
+.combustible-blau {
+color: blue;
+font-weight: bold;
+}
+
+.combustible-marro {
+color: brown;
+font-weight: bold;
+}
+  
+.llamp {
+    font-weight: bold;
+    background-color: red;
+    color: white;
+}
+  
