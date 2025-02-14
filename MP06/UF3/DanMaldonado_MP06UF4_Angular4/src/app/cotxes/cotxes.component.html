@@ -31,7 +31,7 @@
 </form>
 
 <ul>
-  <li *ngFor="let cotxe of cotxes; trackBy: trackByIndex">
+  <li *ngFor="let cotxe of cotxes; let i = index; trackBy: trackByIndex">
     <div [ngClass]="{'llamp': cotxe.correComUnLlamp}">
       <strong>Model:</strong> {{ cotxe.model }} | 
       <strong>Marca:</strong> {{ cotxe.marca }} | 
@@ -45,7 +45,7 @@
         <span *ngSwitchCase="'diesel'" style="color: brown;">Combustible: {{ cotxe.combustible }}</span>
         <span *ngSwitchDefault>Combustible: {{ cotxe.combustible }}</span>
       </ng-container>
-      <button (click)="eliminarCotxe(cotxe)">Eliminar</button>
+      <button (click)="eliminarCotxe(i)">Eliminar</button>
     </div>
   </li>
   <li *ngIf="cotxes.length === 0">Llista buida de cotxes</li>

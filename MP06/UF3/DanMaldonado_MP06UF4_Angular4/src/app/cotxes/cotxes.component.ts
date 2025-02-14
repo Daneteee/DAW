@@ -8,7 +8,7 @@ import { CotxesService } from '../services/cotxes.service';
 
 @Component({
   selector: 'app-cotxes',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ],
   templateUrl: './cotxes.component.html',
   styleUrls: ['./cotxes.component.css'],
   providers: [CotxesService]
@@ -44,11 +44,8 @@ export class CotxesComponent {
   }
 
   // Elminem el cotxe
-  eliminarCotxe(cotxe: Cotxe) {
-    const index = this.cotxes.indexOf(cotxe);
-    if (index !== -1) {
-      this.cotxes.splice(index, 1);
-    }
+  eliminarCotxe(index: number) {
+    this.cotxes.splice(index, 1);
   }
 
   // Mitjançant paràmetres de la URL afegim un cotxe
