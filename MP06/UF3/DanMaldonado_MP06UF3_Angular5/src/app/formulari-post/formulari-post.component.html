@@ -1,0 +1,37 @@
+<h2>Introdueix la ID del post :)</h2>
+<form [formGroup]="myForm">
+    <input formControlName="id" type="number">
+    <button type="button" (click)="postSearch()">Enviar</button>
+</form>
+
+<div *ngIf="dades">
+    <h2>{{ dades.title }}</h2>
+    <p>{{ dades.body }}</p>
+</div>
+
+<h2>Afegir post</h2>
+<form [formGroup]="myForm" (ngSubmit)="postAdd()">
+    <p>
+        <label>userId:</label>
+        <input formControlName="userId" [ngClass]="{error: userId.errors}"/>
+        <em *ngIf="userId.errors && userId.dirty">Has d'introduir una ID d'usuari vàlida</em>
+    </p>
+    <p>
+        <label>Id:</label>
+        <input formControlName="id" [ngClass]="{error: id.errors}"/>
+        <em *ngIf="id.errors && id.dirty">Has d'introduir una ID vàlida</em>
+    </p>
+    <p>
+        <label>Títol:</label>
+        <input formControlName="title" [ngClass]="{error: title.errors}"/>
+        <em *ngIf="title.errors && title.dirty">Has d'introduir un títol vàlid</em>
+    </p>
+    <p>
+        <label>Body:</label>
+        <input formControlName="body" [ngClass]="{error: body.errors}"/>
+        <em *ngIf="body.errors && body.dirty">Has d'introduir un cos vàlid</em>
+    </p>
+    <button type="submit" [disabled]="!myForm.valid">Enviar</button>
+</form>
+
+<p *ngIf="missatge">{{ missatge  }}</p>
