@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Post } from "../models/post";
 
 @Injectable(
-    {providedIn: 'root'}
+    
 )
 export class ServeiPost {
     constructor(private http: HttpClient) { }
