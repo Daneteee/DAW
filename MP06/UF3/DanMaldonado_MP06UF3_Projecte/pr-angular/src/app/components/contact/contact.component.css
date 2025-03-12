@@ -1,0 +1,237 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f0ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sección Hero */
+.hero-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #6a5acd;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    color: #a1a1a1;
+}
+
+/* Contenedor principal */
+.contact-form-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* Contenedor del formulario y la información */
+.form-and-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Estilos del formulario */
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form div {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4b0082;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    outline: none;
+    border-color: #6a5acd;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #4b3f9d;
+}
+
+/* Estilos de la información de contacto */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon {
+    background-color: #6a5acd;
+    padding: 12px;
+    border-radius: 50%;
+    color: white;
+}
+
+.icon i {
+    font-size: 1.5rem;
+}
+
+.info-item h3 {
+    font-size: 1.25rem;
+    color: #6a5acd;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: #555;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #6a5acd;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #4b3f9d;
+}
+
+.create-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f4f0ff;
+    border-radius: 16px;
+    border: 2px solid rgba(123, 3, 174, 0.16);
+    box-shadow: 0 6px 15px rgba(123, 3, 174, 0.1);
+}
+
+.create-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #6a5acd;
+    border-bottom: 2px solid #7B03AE;
+    padding-bottom: 15px;
+}
+
+.create-container form div {
+    margin-bottom: 20px;
+}
+
+.create-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4b0082;
+}
+
+.create-container input,
+.create-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #9370db;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.create-container input:focus,
+.create-container textarea:focus {
+    outline: none;
+    border-color: #7B03AE;
+    box-shadow: 0 0 0 3px rgba(123, 3, 174, 0.2);
+}
+
+.create-container button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #8a2be2; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+}
+
+.create-container button:hover {
+    background-color: #6a3093;
+    transform: translateY(-2px);
+}
+
+.create-container button:disabled {
+    background-color: #cccccc; 
+    cursor: not-allowed;
+    transform: none;
+}
+
+#description {
+    height: 200px;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 400px;
+}
+
+small {
+    color: #ff4500;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+.create-container input[type="file"] {
+    padding: 10px;
+    border: 1px dashed #9370db;
+    background-color: #f8f4ff;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    
+    <script src="app.vue" type="module">
+    </script>
+  </head>
+  <body>
+    <section id="tasca_01">
+      <div id="app">
+        <h2>{{ name }}</h2>
+        <p>EDAT: {{ age }}</p>
+        <p>LA TEVA EDAT D'AQUÍ 5 ANYS: {{ age + 5 }}</p>
+        <p>SORTEIG: DEL 0 AL 9: {{ randomNumber }}</p>
+        <div>
+          <img :src="imageUrl" />
+        </div>
+        <input type="text" v-model="inputValue" />
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<div class="create-container">
+    <h2>{{ title }}</h2>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
+  
+      @if (successMessage) {
+        <div>
+          {{ successMessage }}<a [routerLink]="['/detail', project?._id]" class="project-link">aquí</a>.
+        </div>
+      }
+  
+      <!-- Camp Nom -->
+      <label>Nom</label>
+      <input type="text" formControlName="name">
+      @if (projectForm.get('name')?.errors?.['required']) {
+        <div>
+          <small>Has d'omplir el camp Nom</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Camp Descripció -->
+      <label>Descripció</label>
+      <textarea style="resize: none;" formControlName="description"></textarea>
+      @if (projectForm.get('description')?.errors?.['required']) {
+        <div>
+          <small>Has d'omplir el camp Descripció</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Camp Categoria -->
+      <label>Categoria</label>
+      <input type="text" formControlName="category">
+      @if (projectForm.get('category')?.errors?.['required']) {
+        <div>
+          <small>Has d'omplir el camp Categoria</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Camp Llenguatges Utilitzats -->
+      <label>Llenguatges Utilitzats</label>
+      <input type="text" formControlName="langs">
+      @if (projectForm.get('langs')?.errors?.['required']) {
+        <div>
+          <small>Has d'omplir el camp Llenguatges Utilitzats</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Camp Any -->
+      <label>Any</label>
+      <input type="number" formControlName="year">
+      @if (projectForm.get('year')?.errors?.['required']) {
+        <div>
+          <small>Has d'omplir el camp Any</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Camp Imatge -->
+      <label>Imatge</label>
+      <input type="file" (change)="onFileSelected($event)">
+      @if (projectForm.get('image')?.errors?.['required'] && !imagePreview) {
+        <div>
+          <small>Has d'omplir el camp Imatge</small>
+        </div>
+      }
+      <br>
+  
+      <!-- Vista prèvia de la imatge -->
+      <br>
+      @if (imagePreview) {
+        <div>
+          <p>Vista Prèvia:</p>
+          <img [src]="imagePreview" alt="Vista Prèvia de la Imatge" style="max-width: 300px; border-radius: 10px;">
+        </div>
+      }
+  
+      <!-- Botó Enviar (disabled mentre no sigui vàlid)-->
+      <button type="submit" [disabled]="projectForm.invalid">Enviar</button>
+    </form>
+</div>
+  

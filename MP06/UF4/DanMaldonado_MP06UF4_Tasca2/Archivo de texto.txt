@@ -1,0 +1,149 @@
+ahora lo tengo asi: "use client";
+
+import React, { useState, useEffect } from "react";
+import { useProtectedRoute } from "@/utils/ProtectedRoute";
+import { Search, TrendingUp, TrendingDown, Activity } from "lucide-react";
+
+interface Stock {
+  symbol: string;
+  price: number;
+  volume: number;
+  timestamp: number;
+}
+
+const MarketPage = () => {
+  useProtectedRoute();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [stocks, setStocks] = useState<Stock[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const socket = new WebSocket(
+      "wss://ws.finnhub.io?token=cv7g9fhr01qpecifqecgcv7g9fhr01qpecifqed0" // Reemplaza con tu API Key de Finnhub
+    );
+
+    socket.onopen = () => {
+      console.log("Conectado a Finnhub WebSocket");
+      const symbols = ["NVDA", "JPM", "GOOGL", "AAPL"];
+      symbols.forEach((symbol) =>
+        socket.send(JSON.stringify({ type: "subscribe", symbol }))
+      );
+    };
+
+    socket.onmessage = (event) => {
+      const message = JSON.parse(event.data);
+      if (message.type === "trade") {
+        const newStocks = message.data.map((trade: any) => ({
+          symbol: trade.s,
+          price: trade.p,
+          volume: trade.v,
+          timestamp: trade.t,
+        }));
+
+        setStocks((prevStocks) => {
+          const updatedStocks = [...prevStocks];
+
+            newStocks.forEach((newStock: Stock) => {
+            const index = updatedStocks.findIndex(
+              (stock: Stock) => stock.symbol === newStock.symbol
+            );
+
+            if (index !== -1) {
+              updatedStocks[index] = newStock;
+            } else {
+              updatedStocks.push(newStock);
+            }
+            });
+
+          return updatedStocks;
+        });
+      }
+    };
+
+    socket.onerror = (error) => {
+      console.error("Error en WebSocket:", error);
+      setError("Error al conectar con Finnhub.");
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket cerrado");
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  if (loading) return <div>Cargando datos del mercado...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div className="p-6 bg-base-200 min-h-screen">
+      <div className="card bg-base-100 shadow-xl">
+        <div className="card-body">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div className="flex items-center gap-2">
+              <Activity className="h-6 w-6 text-primary" />
+              <h2 className="text-2xl font-bold">Mercado en Vivo</h2>
+            </div>
+            <div className="join">
+              <input
+                className="input input-bordered join-item w-64"
+                placeholder="Buscar símbolo o empresa..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className="btn join-item btn-primary">
+                <Search className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="table table-zebra">
+              <thead>
+                <tr className="bg-base-200">
+                  <th>Símbolo</th>
+                  <th>Precio</th>
+                  <th>Volumen</th>
+                  <th>Última Actualización</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stocks
+                  .filter(
+                    (stock) =>
+                      stock.symbol
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                  )
+                  .map((stock) => (
+                    <tr
+                      key={stock.symbol}
+                      className="hover:bg-base-200 transition-colors duration-200"
+                    >
+                      <td className="font-bold">{stock.symbol}</td>
+                      <td className="font-mono font-bold">${stock.price.toFixed(2)}</td>
+                      <td>{stock.volume}</td>
+                      <td>{new Date(stock.timestamp).toLocaleTimeString()}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MarketPage;
+
+me da esto:
+Error: Error en WebSocket: {}
+    at createUnhandledError (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/console-error.js:27:49)
+    at handleClientError (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/internal/helpers/use-error-handler.js:44:56)
+    at console.error (webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:48:56)
+    at MarketPage.useEffect (webpack-internal:///(app-pages-browser)/./src/app/market/page.tsx:81:29)

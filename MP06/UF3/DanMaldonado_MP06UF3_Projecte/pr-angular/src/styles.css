@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Assegura que tota la pantalla es compti */
+}
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Fa que el contenidor tingui com a mínim tota l'altura de la pantalla */
+}
+
+.content {
+    flex-grow: 1; /* Fa que el contingut ocupi tot l'espai possible */
+}
+

@@ -1,0 +1,89 @@
+.create-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f4f0ff;
+    border-radius: 16px;
+    border: 2px solid rgba(123, 3, 174, 0.16);
+    box-shadow: 0 6px 15px rgba(123, 3, 174, 0.1);
+}
+
+.create-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #6a5acd;
+    border-bottom: 2px solid #7B03AE;
+    padding-bottom: 15px;
+}
+
+.create-container form div {
+    margin-bottom: 20px;
+}
+
+.create-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #4b0082;
+}
+
+.create-container input,
+.create-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #9370db;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.create-container input:focus,
+.create-container textarea:focus {
+    outline: none;
+    border-color: #7B03AE;
+    box-shadow: 0 0 0 3px rgba(123, 3, 174, 0.2);
+}
+
+.create-container button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #8a2be2; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+}
+
+.create-container button:hover {
+    background-color: #6a3093;
+    transform: translateY(-2px);
+}
+
+.create-container button:disabled {
+    background-color: #cccccc; 
+    cursor: not-allowed;
+    transform: none;
+}
+
+#description {
+    height: 200px;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 400px;
+}
+
+small {
+    color: #ff4500;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+.create-container input[type="file"] {
+    padding: 10px;
+    border: 1px dashed #9370db;
+    background-color: #f8f4ff;
+}

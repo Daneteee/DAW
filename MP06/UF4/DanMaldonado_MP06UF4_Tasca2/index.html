@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+<!-- Cal que posis el que cal-->
+  </head>
+  <body>
+    <header>
+      <h1>Events</h1>
+    </header>
+    <section id="tasca">
+      <h2>Pràctica d'esdeveniments</h2>
+      <!-- 1) Fes una alerta que pareix quan cliquis el botó -->
+      <button>Show Alert</button>
+      <hr />
+      <!-- 2) Registra l'entrada de l'usuari quan faci "keydown" 
+        i mostra-la en el paràgraf (utilitza: event.target.value ) -->
+      <input type="text" />
+      <p>OUTPUT</p>
+      <hr />
+      <!-- 3) Fes el 2) però només mostra el valor introduit si prems la tecla enter -->
+      <input type="text" />
+      <p>OUTPUT</p>
+    </section>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>

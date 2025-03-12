@@ -1,0 +1,20 @@
+<div class="projects-container">
+    <h2>Llista de Projectes</h2>
+    <div class="projects-grid">
+        @for (project of projects; track project.name) {
+            <a [routerLink]="['/detail', project._id]" class="project-link">
+                <div class="project-card">
+                    <h3>{{ project.name }}</h3>
+                    <p><strong>Llenguatges:</strong> {{ project.langs }}</p>
+
+                    @if (project.image !== 'null') {
+                        <img class="project-image" 
+                             [src]="'http://localhost:3700/api/get-image/' + project.image" 
+                             alt="{{ project.name }}"
+                             (error)="project.image = 'null'">
+                    }
+                </div>
+            </a>
+        }
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Vue.js CDN modular -->
+    <script src="https://unpkg.com/vue@3.2.41/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <section id="tasca_01">
+      <div id="app">
+        <h2>{{ name }}</h2>
+        <p>EDAT: {{ age }}</p>
+        <p>LA TEVA EDAT D'AQUÍ 5 ANYS: {{ age + 5 }}</p>
+        <p>SORTEIG: DEL 0 AL 9: {{ randomNumber }}</p>
+        <div>
+          <img :src="imageUrl" />
+        </div>
+        <input type="text" v-model="inputValue" />
+      </div>
+    </section>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const name = ref('Dan Maldonado');
+          const age = ref(19);
+          const randomNumber = ref(Math.floor(Math.random() * 10));
+          const imageUrl = ref('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZUJFO5miYPVea0e6NeD8wIhdanrsk8o7DGw&s');
+          const inputValue = ref('Bondia! Això és un valor per defecte.');
+
+          return {
+            name,
+            age,
+            randomNumber,
+            imageUrl,
+            inputValue
+          };
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html>

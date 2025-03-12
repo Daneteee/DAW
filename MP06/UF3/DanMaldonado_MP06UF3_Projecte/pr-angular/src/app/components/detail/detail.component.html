@@ -1,0 +1,40 @@
+<div class="project-detail-container">
+    @if (loading) {
+        <p>Carregant detalls del projecte...</p>
+    } @else if (error) {
+        <p class="error-message">{{ error }}</p>
+    } @else if (project) {
+        <div class="project-detail-card">
+            <h2>{{ project.name }}</h2>
+            <div class="project-detail-content">
+                @if (project.image !== 'null') {
+                    <div class="project-detail-image-container">
+                        <img 
+                            class="project-detail-image" 
+                            [src]="'http://localhost:3700/api/get-image/' + project.image" 
+                            alt="{{ project.name }}"
+                        >
+                    </div>
+                }
+
+                <!-- Informació del projecte -->
+                <div class="project-detail-info">
+                    <p><strong>Llenguatges:</strong> {{ project.langs }}</p>
+                    <p><strong>Descripció:</strong> {{ project.description }}</p>
+                    <p><strong>Categoria:</strong> {{ project.category }}</p>
+                    <p><strong>Any:</strong> {{ project.year }}</p>
+                </div>
+
+                <!-- Accions del projecte -->
+                <div class="project-actions">
+                    <button class="btn-edit" (click)="editProject(project._id)">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn-delete" (click)="deleteProject(project._id)">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
