@@ -1,38 +1,75 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Basics</title>
-<!-- Cal que posis el que cal-->
+    <title>Vue Events</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header>
-      <h1>Events</h1>
-    </header>
-    <section id="tasca">
-      <h2>Pràctica d'esdeveniments</h2>
-      <!-- 1) Fes una alerta que pareix quan cliquis el botó -->
-      <button>Show Alert</button>
-      <hr />
-      <!-- 2) Registra l'entrada de l'usuari quan faci "keydown" 
-        i mostra-la en el paràgraf (utilitza: event.target.value ) -->
-      <input type="text" />
-      <p>OUTPUT</p>
-      <hr />
-      <!-- 3) Fes el 2) però només mostra el valor introduit si prems la tecla enter -->
-      <input type="text" />
-      <p>OUTPUT</p>
-    </section>
+    <div class="container">
+      <header>
+        <h1>Events</h1>
+      </header>
+      <section id="tasca" class="card">
+        <h2>Pràctica d'esdeveniments</h2>
+        
+        <div class="input-group">
+          <button @click="showAlert" class="btn">Show Alert</button>
+        </div>
+
+        <div class="input-group">
+          <label>Live Text Input:</label>
+          <input type="text" @keydown="updateLiveText" placeholder="Type something..." />
+          <p class="output">{{ liveText }}</p>
+        </div>
+
+        <div class="input-group">
+          <label>Enter to Submit:</label>
+          <input type="text" @keyup.enter="updateOnEnter" placeholder="Press enter to submit..." />
+          <p class="output">{{ enterText }}</p>
+        </div>
+        <button class="btn" @click="submitText">Submit</button>
+      </section>
+    </div>
 
     <script>
       const { createApp, ref } = Vue;
 
       createApp({
         setup() {
-          
+
+          // Inicialitzem les variables
+          const liveText = ref('');
+          const enterText = ref('');
+
+          // Mostrem l'alerta
+          const showAlert = () => {
+            alert('Bondia això és una alerta!');
+          };
+
+          // Actualitzem el text en temps real
+          const updateLiveText = (event) => {
+            liveText.value = event.target.value;
+          };
+
+          // Actualitzem el text quan es prem enter
+          const updateOnEnter = (event) => {
+            enterText.value = event.target.value;
+          };
+
+          const submitText = () => {
+            enterText.value = "Això és un text nou!";
+          };
+
+          return {
+            showAlert, liveText, updateLiveText, enterText, updateOnEnter, submitText
+          };
+
         }
-      }).mount('#app');
+      }).mount('#tasca');
     </script>
   </body>
 </html>
+
+    

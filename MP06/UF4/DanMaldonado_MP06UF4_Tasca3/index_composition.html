@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Reactivity in Action</h1>
+    </header>
+    <section id="assignment">
+      <button @click="afegir(5)">Add 5</button>
+      <button @click="afegir(1)">Add 1</button>
+      <!-- 1) Conecta els 2 botons per calcular la suma  -->
+      <!-- Mostra : Encara no fincs que la suma no arribi al resultat de 37-->
+      <!--Mostra: T'has passat si la suma és mes gran que 37  -->
+      <p>Result: {{ suma }}</p>
+      <p>{{ resultat }}</p>
+      <p>Arrel quadrada: {{ arrelQuadrada }}</p>
+      <!-- 2) Busca canvis en la "suma" i resseteja el valor a 0 si després de 5 segons no ha 	
+      	      canviat!
+              Nota: this dins de setTimeout et portarà problemes si no utilitzes funciosn fletxa 		
+              https://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback 
+       -->
+    </section>
+
+    <script>
+      const { createApp, ref, computed, watch } = Vue;
+
+      createApp({
+        setup() {
+          const suma = ref(0);
+          let timeoutId = null;
+
+          const resultat = computed(() => {
+            if (suma.value < 37) {
+              return "Encara no";
+            } else if (suma.value === 37) {
+              return "Felicitats! Has arribat a 37!";
+            } else {
+              return "T'has passat!";
+            }
+          });
+
+          const arrelQuadrada = computed(() => Math.sqrt(suma.value).toFixed(2));
+
+          const afegir = (valor) => {
+            suma.value += valor;
+          };
+
+          watch(suma, () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+              suma.value = 0;
+            }, 5000);
+          });
+
+          return {
+            suma,
+            resultat,
+            arrelQuadrada,
+            afegir
+          };
+        }
+      }).mount("#assignment");
+    </script>
+  </body>
+</html>

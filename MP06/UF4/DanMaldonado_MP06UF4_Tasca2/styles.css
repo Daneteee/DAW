@@ -1,0 +1,130 @@
+:root {
+    --primary: #8844ee;
+    --primary-dark: #6622cc;
+    --secondary: #f0e6ff;
+    --text: #2c3e50;
+    --shadow: rgba(136, 68, 238, 0.2);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, var(--secondary), #fff);
+    min-height: 100vh;
+    color: var(--text);
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    color: var(--primary);
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px var(--shadow);
+  }
+  
+  .card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 20px var(--shadow);
+  }
+  
+  h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .input-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  .input-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--secondary);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--shadow);
+  }
+  
+  .btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow);
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+  }
+  
+  .output {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--secondary);
+    border-radius: 0.5rem;
+    min-height: 3rem;
+    word-break: break-all;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    .card {
+      padding: 1.5rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  

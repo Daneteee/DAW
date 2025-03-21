@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .escena {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            perspective: 600px;
+        }
+        
+        .cubo {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #22bdff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgb(255, 153, 252);
+            transform-origin: center;
+        }
+        
+        .cubo1 {
+            top: 50px;
+            left: 50px;
+            animation: animacion1 5s ease-in-out infinite;
+        }
+        
+        .cubo2 {
+            top: 150px;
+            left: 150px;
+            animation: animacion2 6s ease-in-out infinite;
+        }
+        
+        .cubo3 {
+            top: 250px;
+            left: 250px;
+            animation: animacion3 7s ease-in-out infinite;
+        }
+        
+        @keyframes animacion1 {
+            0% {
+                transform: translateX(0) translateY(0) rotateY(0deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(200px) translateY(50px) rotateY(180deg) scale(1.3);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotateY(360deg) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes animacion2 {
+            0% {
+                transform: translateX(0) translateY(0) rotateX(0deg) scale(1);
+                background-color: #820ef6;
+            }
+            50% {
+                transform: translateX(-150px) translateY(100px) rotateX(180deg) scale(1.2);
+                background-color: #ff005d;
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotateX(360deg) scale(1);
+                background-color: #00ffa2;
+            }
+        }
+        
+        @keyframes animacion3 {
+            0% {
+                transform: scale(1) skew(0deg, 0deg) rotateZ(0deg);
+                background-color: #7700ff;
+            }
+            50% {
+                transform: scale(1.5) skew(15deg, 15deg) rotateZ(180deg);
+                background-color: #ff00e6;
+            }
+            100% {
+                transform: scale(1) skew(0deg, 0deg) rotateZ(360deg);
+                background-color: #ff5900;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="escena">
+        <div class="cubo cubo1"></div>
+        <div class="cubo cubo2"></div>
+        <div class="cubo cubo3"></div>
+    </div>
+</body>
+</html>

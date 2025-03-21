@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galaxia a Pantalla Completa</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #0a0018;
+      font-family: sans-serif;
+    }
+
+    .galaxia {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .centro {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #ffffff, #d1c4e9);
+      border-radius: 50%;
+      filter: blur(2px);
+      box-shadow: 0 0 40px #9c27b0;
+      animation: pulsar 2s ease-in-out infinite;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .anillo {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: girar 60s linear infinite;
+    }
+
+    .anillo2 {
+      width: 300px;
+      height: 300px;
+      border-color: rgba(186, 104, 200, 0.5);
+      animation-duration: 45s;
+    }
+
+    .anillo3 {
+      width: 500px;
+      height: 500px;
+      border-color: rgba(209, 196, 233, 0.3);
+      animation-duration: 60s;
+    }
+
+    .anillo4 {
+      width: 600px;
+      height: 600px;
+      border-color: rgba(123, 31, 162, 0.6);
+      animation-duration: 80s;
+    }
+
+    .estrella {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: white;
+      border-radius: 50%;
+      filter: blur(1px);
+      animation: brillar 2s ease-in-out infinite;
+    }
+
+    .estrella-grande {
+      width: 4px;
+      height: 4px;
+      background-color: #d1c4e9;
+      box-shadow: 0 0 5px #9c27b0;
+    }
+
+    .planeta {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      --orbit: 150px;
+      animation: orbitar var(--orbitar-duration, 20s) linear infinite;
+    }
+
+    .planeta1 {
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(circle, #9c27b0, #6a1b9a);
+      --orbit: 300px;
+      --orbitar-duration: 20s;
+    }
+
+    .planeta2 {
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #ba68c8, #8e24aa);
+      --orbit: 250px;
+      --orbitar-duration: 40s;
+      animation-direction: reverse;
+    }
+
+    .planeta3 {
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #7b1fa2, #4a148c);
+      --orbit: 150px;
+      --orbitar-duration: 30s;
+    }
+
+    @keyframes pulsar {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    }
+
+    @keyframes girar {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes brillar {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes orbitar {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(var(--orbit)) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(var(--orbit)) rotate(-360deg);
+        }
+    }
+
+</style>
+  <script>
+    function createStars() {
+      const galaxia = document.querySelector('.galaxia');
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      
+      // Creem les estrelles de forma aleatoria
+      for (let i = 0; i < 200; i++) {
+        const estrella = document.createElement('div');
+        estrella.className = 'estrella';
+        const x = Math.random() * screenWidth;
+        const y = Math.random() * screenHeight;
+        estrella.style.left = x + 'px';
+        estrella.style.top = y + 'px';
+        if (Math.random() > 0.8) {
+          estrella.classList.add('estrella-grande');
+        }
+        estrella.style.animationDelay = Math.random() * 2 + 's';
+        galaxia.appendChild(estrella);
+      }
+    }
+
+    function initGalaxy() {
+      createStars();
+    }
+
+    window.addEventListener('load', initGalaxy);
+  </script>
+</head>
+<body>
+  <div class="galaxia">
+    <div class="anillo anillo1"></div>
+    <div class="anillo anillo2"></div>
+    <div class="anillo anillo3"></div>
+    <div class="anillo anillo4"></div>
+    <div class="planeta planeta1"></div>
+    <div class="planeta planeta2"></div>
+    <div class="planeta planeta3"></div>
+    <div class="centro"></div>
+  </div>
+</body>
+</html>
