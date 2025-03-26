@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Styling</h1>
+    </header>
+    <section id="assignment">
+      <input type="text" v-model="inputValue" placeholder="Escribe algo" />
+      
+      <p :class="{
+            'classe1': isDigit,
+            'classe2': !isDigit,
+            'visible': isVisible,
+            'hidden': !isVisible
+          }">
+        Style me!
+      </p>
+      
+      <button @click="toggleParagraph">Toggle Paragraph</button>
+      <!-- 2) 
+              utilitza 2 classes, hidden i visible i cada vegada que es prem el botó toogle paragraf 
+              s'ha de mostrar el paràgraf o no
+         -->
+    </section>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            inputValue: "",
+            isVisible: true
+          };
+        },
+        computed: {
+          isDigit() {
+            return /^\d+$/.test(this.inputValue);
+          }
+        },
+        methods: {
+          toggleParagraph() {
+            this.isVisible = !this.isVisible;
+          }
+        }
+      });
+
+      app.mount("#assignment");
+    </script>
+  </body>
+</html>

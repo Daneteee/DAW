@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Composition API Example</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header>
+        <h1>Vue Styling</h1>
+    </header>
+    <section id="assignment">
+      <input type="text" v-model="inputValue" placeholder="Escribe algo" />
+
+      <p :class="{
+            'classe1': isDigit,
+            'classe2': !isDigit,
+            'visible': isVisible,
+            'hidden': !isVisible
+          }">
+        Style me!
+      </p>
+
+      <button @click="toggleParagraph">Toggle Paragraph</button>
+      <!-- 
+           2) Utilitza 2 classes, hidden i visible i cada vegada que es prem el botó toggle paragraph
+           s'ha de mostrar o ocultar el paràgraf
+         -->
+    </section>
+
+    <script>
+      const { createApp, ref, computed } = Vue;
+
+      createApp({
+        setup() {
+          const inputValue = ref("");
+          const isVisible = ref(true);
+
+          const isDigit = computed(() => {
+            return /^\d+$/.test(inputValue.value);
+          });
+
+          const toggleParagraph = () => {
+            isVisible.value = !isVisible.value;
+          };
+
+          return {
+            inputValue,
+            isVisible,
+            isDigit,
+            toggleParagraph
+          };
+        }
+      }).mount("#assignment");
+    </script>
+  </body>
+</html>
