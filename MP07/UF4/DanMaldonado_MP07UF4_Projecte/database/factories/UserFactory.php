@@ -2,39 +2,31 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
+    // Definim la contrasenya actual que utilitzem a la fàbrica
     protected static ?string $password;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    // Definim l'estat per defecte del model
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'name' => fake()->firstName(), 
+            'surname' => fake()->lastName(),
+            'nick' => fake()->unique()->userName(), 
+            'email' => fake()->unique()->safeEmail(), 
+            'password' => bcrypt('password'), 
+            'image' => fake()->imageUrl(300, 300, 'people'), // Generem una URL d'imatge aleatòria
+            'role' => 'user',
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
+    // Indiquem que l'adreça de correu electrònic del model no hauria d'estar verificada
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [

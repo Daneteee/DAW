@@ -61,9 +61,28 @@
 
         <div>
             <x-input-label for="image" :value="__('Profile Image')" />
-            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" />
+            <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" accept="image/*" onchange="previewImage(event)" />
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
+
+            <!-- Vista previa -->
+            <div class="mt-4">
+                <p class="text-sm text-gray-500 mb-1">{{ __('Preview:') }}</p>
+                <img id="image-preview" 
+                    src="{{ $user->image ? asset('storage/' . $user->image) : 'https://via.placeholder.com/150' }}" 
+                    class="border border-gray-300" 
+                    alt="Profile preview">
+            </div>
         </div>
+
+        <script>
+            function previewImage(event) {
+                const preview = document.getElementById('image-preview');
+                const file = event.target.files[0];
+                if (file) {
+                    preview.src = URL.createObjectURL(file);
+                }
+            }
+        </script>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

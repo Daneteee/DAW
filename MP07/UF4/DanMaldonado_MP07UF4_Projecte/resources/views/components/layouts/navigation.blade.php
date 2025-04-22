@@ -9,33 +9,14 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
             </div>
 
-            <!-- Extra Buttons + User Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6 gap-4">
-                <!-- Buttons -->
-                <div class="flex items-center gap-2">
-                    <a href="{{ route('home') }}" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded hover:bg-gray-200 transition">
-                        Inici
-                    </a>
-                    <a href="{{ route('images.create') }}" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded hover:bg-gray-200 transition">
-                        Pujar imatge
-                    </a>
-                </div>
-
-                <!-- User Dropdown -->
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            @auth   
-                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile photo" class="h-9 w-9 mr-2 rounded-full object-cover">
+                            @auth    
                                 <div>{{ Auth::user()->name }}</div>
                             @endauth
 
@@ -49,7 +30,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Perfil') }}
+                            {{ __('Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -59,13 +40,12 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Tancar sessió') }}
+                                {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
             </div>
-
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
