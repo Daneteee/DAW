@@ -1,20 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acadèmia esTUdia</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/styles.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Animated Les Paul Guitar</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="guitar-storyboard">
-        <div class="guitar-part body"></div>
-        <div class="guitar-part neck"></div>
-        <div class="guitar-part headstock"></div>
-        <div class="guitar-part strings"></div>
-        <div class="guitar-part pickups"></div>
-        <div class="guitar-part bridge"></div>
+  <div class="stage-floor"></div>
+  
+  <div class="amp"></div>
+  
+  <div class="mic-stand">
+    <div class="mic-boom">
+      <div class="mic"></div>
     </div>
+  </div>
+
+  <div class="guitar-container">
+    
+    <img class="guitar-headstock" style="width: 105px; height: auto;" src="assets/headstock.png" alt="Headstock">
+    
+    <div class="pegs pegs-left">
+      <div class="peg peg-1"></div>
+      <div class="peg peg-2"></div>
+      <div class="peg peg-3"></div>
+    </div>
+    
+    <div class="pegs pegs-right">
+      <div class="peg peg-1"></div>
+      <div class="peg peg-2"></div>
+      <div class="peg peg-3"></div>
+    </div>
+    
+    <div class="nut"></div>
+    <div class="guitar-neck">
+      <div class="fretboard">
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        <div class="fret"></div>
+        
+        <div class="inlay third"></div>
+        <div class="inlay fifth"></div>
+        <div class="inlay seventh"></div>
+        <div class="inlay ninth"></div>
+        <div class="inlay twelfth-1"></div>
+        <div class="inlay twelfth-2"></div>
+        <div class="inlay fifteenth"></div>
+      </div>
+    </div>
+    
+    <div class="guitar-body">
+      <svg width="300" height="400" viewBox="0 0 80.386643 106.84286" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#d4aa00" d="m 46.777255,0.22745676 c -4.72046,-0.28778 -10.040932,-0.31406 -14.760523,-0.0122 -3.174019,0.203 -6.279032,0.61917 -8.725866,1.68553994 -2.265375,0.98728 -4.836118,2.53496 -6.761578,4.08391 -3.439657,2.76706 -4.225595,5.9388493 -4.652857,9.0950593 -0.334607,2.47177 -0.036,6.10165 1.046651,8.76762 1.266216,3.11799 1.909382,4.44622 3.232495,6.96959 0.973734,1.85706 1.447045,3.35369 1.750441,5.42848 0.270088,1.84701 -0.196691,3.16202 -0.824542,4.91992 -0.407024,1.13961 -2.604985,3.32564 -3.978591,4.92123 -1.84156,2.13917 -3.8794115,4.21296 -5.4143745,6.58177 -2.33076,3.59692 -3.685892,4.41973 -5.879309,10.708 -1.00883603,2.89222 -1.66761303,7.45756 -1.79406803,10.51807 -0.14554,3.52245 0.782004,7.62861 1.77996503,11.00987 0.730911,2.47645 2.632167,5.18438 4.175144,7.25471 1.186785,1.5924 2.84204,3.69325 4.3523005,4.98294 2.055538,1.75533 4.104664,3.446254 6.417394,4.845434 2.410715,1.45846 5.161171,2.54682 7.882708,3.27613 3.728528,0.99916 7.904738,1.51173 11.802243,1.55522 5.607097,0.0625 11.551317,0.0883 16.858347,-1.04798 4.57129,-0.97875 9.8042,-2.96738 13.59763,-5.6995 3.36453,-2.423224 6.86237,-5.895154 8.99106,-9.453354 1.58397,-2.64768 2.86793,-6.06402 3.80011,-9.00515 1.16655,-3.6806 0.67654,-9.10019 0.13352,-13.56678 -0.41739,-3.43332 -3.21337,-9.21229 -4.9393,-12.20945 -2.30475,-4.0023 -4.77247,-6.59412 -7.52046,-10.30609 -2.10188,-2.83923 -4.32739,-3.45075 -4.80047,-6.95151 -0.53094,-3.92883 1.2725,-6.46646 2.60317,-9.67678 1.15251,-2.78049 3.02414,-5.58605 3.39291,-8.48249 0.31339,-2.46145 1.04478,-8.9077 -2.051,-9.17218 -2.39166,-0.20433 -2.91967,3.8136 -6.32881,5.5955 -1.71295,0.89533 -3.62216,1.06007 -4.3805,1.03121 -1.44356,-0.0549 -3.04625,-0.44186 -4.09405,-1.21102 -1.80518,-1.32513 -3.23069,-2.77238 -3.75516,-4.94943 -0.9537,-3.9587693 -0.97421,-9.6838593 -1.15463,-11.48626924 z" />
+      </svg>
+    </div>
+    
+    <div class="pickguard"></div>
+    <div class="pickup pbridge"></div>
+    <div class="pickup neck"></div>
+    
+    <div class="knobs">
+      <div class="knob knob-1"></div>
+      <div class="knob knob-2"></div>
+      <div class="knob knob-3"></div>
+      <div class="knob knob-4"></div>
+    </div>
+    
+    <div class="saddle"></div>
+    <div class="bridge"></div>
+    
+    <div class="strings">
+      <div class="string string-1"></div>
+      <div class="string string-2"></div>
+      <div class="string string-3"></div>
+      <div class="string string-4"></div>
+      <div class="string string-5"></div>
+      <div class="string string-6"></div>
+    </div>
+  </div>
+  <div class="explosion explosion1"></div>
+  <div class="explosion explosion2"></div>
 </body>
 </html>
