@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acadèmia esTUdia - Centre d'estudis especialitzat en títols oficials, competències TIC i cursos d'idiomes a Catalunya">
+    <meta name="keywords" content="acadèmia, estudis, títols oficials, competències TIC, idiomes, formació, Catalunya">
+    <meta name="author" content="Acadèmia esTUdia">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Acadèmia esTUdia - Centre d'estudis">
+    <meta property="og:description" content="Centre d'estudis especialitzat en títols oficials, competències TIC i cursos d'idiomes">
+    <meta property="og:type" content="website">
+    <title>Acadèmia esTUdia - Centre d'estudis especialitzat</title>
+    <link rel="canonical" href="https://www.academiaestudia.cat">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CAPÇALERA -->
+    <header role="banner">
+        <nav class="navbar navbar-expand-lg navbar-custom" role="navigation" aria-label="Menú principal">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegació">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-white" href="#" aria-current="page">Inici</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Cursos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CARRUSEL -->
+    <main id="carrusel" class="carousel slide" data-bs-ride="carousel" role="region" aria-label="Presentació de l'acadèmia">
+        <div class="carousel-inner">
+            <h1 class="d-none d-md-block">Acadèmia esTUdia - Centre d'estudis especialitzat</h1>
+            <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="1 de 3">
+                <h2 class="d-none d-md-block">Us facilitem l'obtenció de títols oficials</h2>
+                <p class="d-none d-md-block">Prepara't per obtenir els teus títols oficials amb els millors professionals</p>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="2 de 3">
+                <h2 class="d-none d-md-block">Assoleix les competències TIC</h2>
+                <p class="d-none d-md-block">Aprèn les habilitats tecnològiques més demandades al mercat laboral</p>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="3 de 3">
+                <h2 class="d-none d-md-block">Millora la teva fluidesa de llengües estrangeres</h2>
+                <p class="d-none d-md-block">Cursos d'idiomes adaptats a tots els nivells i necessitats</p>
+            </div>
+
+            <!-- Spinner y Botón "Més informació" -->
+            <div class="d-flex flex-column justify-content-center align-items-center mt-4 d-none d-md-block">
+                <div class="mt-5 spinner-grow text-light" role="status" aria-label="Carregant">
+                    <span class="visually-hidden">Carregant...</span>
+                </div>
+                <div id="mesInformacio" class="text-center mt-3">
+                    <a href="#" class="btn btn-outline-success" aria-label="Obtenir més informació sobre l'acadèmia">Més informació</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel" data-bs-slide="prev" aria-label="Diapositiva anterior">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrusel" data-bs-slide="next" aria-label="Diapositiva següent">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Següent</span>
+        </button>
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators" role="tablist">
+            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1" role="tab"></button>
+            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="1" aria-label="Diapositiva 2" role="tab"></button>
+            <button type="button" data-bs-target="#carrusel" data-bs-slide-to="2" aria-label="Diapositiva 3" role="tab"></button>
+        </div>
+    </main>
+
+    
+    <!-- TOAST -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="toastInfo" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Informació</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Tancar"></button>
+            </div>
+            <div class="toast-body">
+                Deixa les teves dades en el formulari. 
+                <a href="#" 
+                class="text-success fw-bold" 
+                data-bs-toggle="modal" 
+                data-bs-target="#formModal"
+                aria-label="Obrir formulari per deixar les teves dades">Obrir formulari</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULARI MODAL -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Deixa les teves dades</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tancar"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" aria-labelledby="formModalLabel">
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" required aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correu electrònic</label>
+                            <input type="email" class="form-control" id="email" required aria-required="true">
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="popover" title="Correu vàlid" data-bs-content="Introdueix un correu electrònic correcte." aria-label="Informació sobre el format del correu electrònic">ℹ️</button>
+                        </div>
+                        <div class="mb-3">
+                            <label for="missatge" class="form-label">Missatge</label>
+                            <textarea class="form-control" id="missatge" rows="3" required aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARDS (3 COLUMNES) -->
+    <section class="container my-5" role="region" aria-label="Serveis de l'acadèmia">
+        <h2 class="text-center mb-4">Els nostres serveis</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <article class="card h-100 shadow" role="article">
+                    <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Il·lustració de títols oficials - Acadèmia esTUdia">
+                    <div class="card-body">
+                        <h3 class="card-title text-success">📜 Títols Oficials</h3>
+                        <p class="card-text">Facilitem l'obtenció de certificacions oficials per al teu futur professional.</p>
+                        <button id="btnMesInformacio" class="btn btn-outline-success" aria-label="Més informació sobre títols oficials">Més info</button>
+                    </div>
+                </article>
+            </div>
+    
+            <div class="col-md-4">
+                <article class="card h-100 shadow" role="article">
+                    <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Il·lustració de competències TIC - Acadèmia esTUdia">
+                    <div class="card-body">
+                        <h3 class="card-title text-success">💻 Competències TIC</h3>
+                        <p class="card-text">Aprèn habilitats tecnològiques fonamentals per a la teva carrera professional.</p>
+                        <button class="btn btn-outline-success" aria-label="Més informació sobre competències TIC">Més info</button>
+                    </div>
+                </article>
+            </div>
+    
+            <div class="col-md-4">
+                <article class="card h-100 shadow" role="article">
+                    <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Il·lustració d'idiomes - Acadèmia esTUdia">
+                    <div class="card-body">
+                        <h3 class="card-title text-success">🌍 Idiomes</h3>
+                        <p class="card-text">Millora la teva fluïdesa en llengües estrangeres amb els nostres cursos especialitzats.</p>
+                        <button class="btn btn-outline-success" aria-label="Més informació sobre cursos d'idiomes">Més info</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-custom text-center py-3" role="contentinfo">
+        <h2>Acadèmia esTUdia</h2>
+        <p>Centre d'estudis especialitzat en títols oficials, competències TIC i cursos d'idiomes</p>
+        <address>
+            <p>Contacte: <a href="mailto:info@academiaestudia.cat">info@academiaestudia.cat</a></p>
+        </address>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Inicializar el toast una sola vez
+        const toastEl = document.getElementById('toastInfo');
+        const toast = new bootstrap.Toast(toastEl);
+
+        // Mostrar el toast al hacer clic en el botón del carrusel
+        document.querySelector('#mesInformacio a').addEventListener('click', () => {
+            toast.show();
+        });
+
+        // Inicializar popovers
+        const popoverList = [...document.querySelectorAll('[data-bs-toggle="popover"]')]
+            .map(popoverEl => new bootstrap.Popover(popoverEl));
+    </script>
+
+</body>
+</html>
